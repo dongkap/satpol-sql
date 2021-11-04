@@ -1,2 +1,1 @@
-# satpol-sql
-SQL Structure
+psql -d satpol -f "satpol-data-support.sql" -U dongkap
