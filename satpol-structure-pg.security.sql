@@ -214,9 +214,9 @@ CREATE TABLE security.sec_personal_info (
 );
 CREATE TABLE security.sec_settings (
 	settings_uuid varchar(36) NOT NULL,
-	locale_code varchar(10) DEFAULT 'en-US' NOT NULL,
-	locale_identifier varchar(100) DEFAULT 'English (United States)' NOT NULL,
-	locale_icon varchar(100) DEFAULT 'flag-icon flag-icon-us',
+	locale_code varchar(10) DEFAULT 'id-ID' NOT NULL,
+	locale_identifier varchar(100) DEFAULT 'Indonesia' NOT NULL,
+	locale_icon varchar(100) DEFAULT 'flag-icon flag-icon-id',
 	theme varchar(10) DEFAULT 'default' NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
@@ -227,10 +227,27 @@ CREATE TABLE security.sec_settings (
 	user_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (settings_uuid)
 );
+
+CREATE TABLE security.sec_occupation (
+	occupation_uuid varchar(36) NOT NULL,
+	occupation_code varchar(50) NOT NULL,
+	occupation_name varchar(50) NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	role_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
+	PRIMARY KEY (occupation_uuid)
+);
 CREATE TABLE security.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
-	last_education varchar(50) NULL,
+	occupation_code varchar(50) NOT NULL,
+	occupation_name varchar(50) NOT NULL,
+	last_education_degree varchar(50) NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -243,11 +260,11 @@ CREATE TABLE security.sec_employee (
 CREATE TABLE security.sec_education (
 	education_uuid varchar(36) NOT NULL,
 	school_name varchar(100) NOT NULL,
-	degree varchar(100) NOT NULL,
-	study varchar(100) NOT NULL,
-	grade varchar(10) NOT NULL,
-	education_start_date timestamp NULL,
-	education_end_date timestamp NULL,
+	degree varchar(50) NULL,
+	study varchar(100) NULL,
+	grade varchar(10) NULL,
+	education_start_year int NULL,
+	education_end_year int NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -293,10 +310,6 @@ ALTER TABLE security.sec_user ADD CONSTRAINT username UNIQUE (username);
 ALTER TABLE security.sec_user ADD CONSTRAINT email UNIQUE (email);
 ALTER TABLE security.sec_corporate ADD CONSTRAINT corporate_id UNIQUE (corporate_id);
 
-ALTER TABLE security.sec_personal_info
-	ADD FOREIGN KEY (user_uuid) 
-	REFERENCES security.sec_user (user_uuid);
-
 ALTER TABLE security.sec_function
 	ADD FOREIGN KEY (role_uuid) 
 	REFERENCES security.sec_role (role_uuid);
@@ -337,9 +350,37 @@ ALTER TABLE security.sec_contact_user
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
 
+ALTER TABLE security.sec_personal_info
+	ADD FOREIGN KEY (user_uuid) 
+	REFERENCES security.sec_user (user_uuid);
+
 ALTER TABLE security.sec_settings
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
+
+ALTER TABLE security.sec_occupation
+	ADD FOREIGN KEY (role_uuid) 
+	REFERENCES security.sec_role (role_uuid);
+
+ALTER TABLE security.sec_occupation
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES security.sec_corporate (corporate_uuid);
+
+ALTER TABLE security.sec_employee
+	ADD FOREIGN KEY (user_uuid) 
+	REFERENCES security.sec_user (user_uuid);
+
+ALTER TABLE security.sec_education
+	ADD FOREIGN KEY (employee_uuid) 
+	REFERENCES security.sec_employee (employee_uuid);
+
+ALTER TABLE security.sec_training
+	ADD FOREIGN KEY (employee_uuid) 
+	REFERENCES security.sec_employee (employee_uuid);
+
+ALTER TABLE security.sec_certification
+	ADD FOREIGN KEY (employee_uuid) 
+	REFERENCES security.sec_employee (employee_uuid);
 
 GRANT ALL ON TABLE security.oauth_access_token TO dongkap;
 
@@ -353,8 +394,6 @@ GRANT ALL ON TABLE security.oauth_code TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_refresh_token TO dongkap;
 
-GRANT ALL ON TABLE security.sec_contact_user TO dongkap;
-
 GRANT ALL ON TABLE security.sec_corporate TO dongkap;
 
 GRANT ALL ON TABLE security.sec_function TO dongkap;
@@ -363,14 +402,28 @@ GRANT ALL ON TABLE security.sec_menu TO dongkap;
 
 GRANT ALL ON TABLE security.sec_menu_i18n TO dongkap;
 
-GRANT ALL ON TABLE security.sec_personal_info TO dongkap;
+GRANT ALL ON TABLE security.sec_sys_auth TO dongkap;
+
+GRANT ALL ON TABLE security.sec_role TO dongkap;
 
 GRANT ALL ON TABLE security.sec_r_user_corporate TO dongkap;
 
 GRANT ALL ON TABLE security.sec_r_user_role TO dongkap;
 
-GRANT ALL ON TABLE security.sec_role TO dongkap;
+GRANT ALL ON TABLE security.sec_user TO dongkap;
+
+GRANT ALL ON TABLE security.sec_contact_user TO dongkap;
+
+GRANT ALL ON TABLE security.sec_personal_info TO dongkap;
 
 GRANT ALL ON TABLE security.sec_settings TO dongkap;
 
-GRANT ALL ON TABLE security.sec_user TO dongkap;
+GRANT ALL ON TABLE security.sec_occupation TO dongkap;
+
+GRANT ALL ON TABLE security.sec_employee TO dongkap;
+
+GRANT ALL ON TABLE security.sec_education TO dongkap;
+
+GRANT ALL ON TABLE security.sec_training TO dongkap;
+
+GRANT ALL ON TABLE security.sec_certification TO dongkap;
