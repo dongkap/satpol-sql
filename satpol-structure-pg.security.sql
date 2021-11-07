@@ -216,8 +216,8 @@ CREATE TABLE security.sec_personal_info (
 	gender varchar(20) NOT NULL,
 	place_of_birth varchar(50) NOT NULL,
 	date_of_birth date NOT NULL,
-	height int NULL,
-	weight int NULL,
+	height int,
+	weight int,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -276,28 +276,29 @@ CREATE TABLE security.sec_occupation (
 CREATE TABLE security.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
-	last_education_degree varchar(50) NULL,
+	last_education_degree varchar(50),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
-	parent_uuid varchar(36) NULL,
+	parent_uuid varchar(36),
 	user_uuid varchar(36) NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	bp_uuid varchar(36) NULL,
+	file_metadata_uuid varchar(36),
 	PRIMARY KEY (employee_uuid)
 );
 CREATE TABLE security.sec_education (
 	education_uuid varchar(36) NOT NULL,
 	school_name varchar(100) NOT NULL,
-	degree varchar(50) NULL,
-	study varchar(100) NULL,
-	grade varchar(10) NULL,
-	education_start_year int NULL,
-	education_end_year int NULL,
+	degree varchar(50),
+	study varchar(100),
+	grade varchar(10),
+	education_start_year int,
+	education_end_year int,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -311,8 +312,8 @@ CREATE TABLE security.sec_training (
 	training_uuid varchar(36) NOT NULL,
 	training_code varchar(50) NOT NULL,
 	training_name varchar(100) NOT NULL,
-	training_start_date timestamp NULL,
-	training_end_date timestamp NULL,
+	training_start_date timestamp,
+	training_end_date timestamp,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -336,7 +337,7 @@ CREATE TABLE security.sec_certification (
 	modified_date timestamp,
 	modified_by varchar(25),
 	employee_uuid varchar(36) NOT NULL,
-	file_metadata_uuid varchar(36) NULL,
+	file_metadata_uuid varchar(36),
 	PRIMARY KEY (certification_uuid)
 );
 CREATE TABLE security.sec_business_partner (
@@ -358,7 +359,7 @@ CREATE TABLE security.sec_business_partner (
 CREATE TABLE security.sec_b2b (
 	b2b_uuid varchar(36) NOT NULL,
 	b2b_non_expired boolean DEFAULT true NOT NULL,
-	b2b_expired_time timestamp NULL,
+	b2b_expired_time timestamp,
 	corporate_name varchar(255) NOT NULL,
 	bp_name varchar(255) NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
@@ -443,6 +444,10 @@ ALTER TABLE security.sec_employee
 ALTER TABLE security.sec_employee
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
+
+ALTER TABLE security.sec_employee
+	ADD FOREIGN KEY (file_metadata_uuid) 
+	REFERENCES security.file_metadata (file_metadata_uuid);
 
 ALTER TABLE security.sec_education
 	ADD FOREIGN KEY (employee_uuid) 
