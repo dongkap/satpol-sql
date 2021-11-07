@@ -47,6 +47,26 @@ CREATE TABLE security.oauth_refresh_token (
 	"token" bytea,
 	authentication bytea
 );
+CREATE TABLE security.file_metadata ( 
+	file_metadata_uuid varchar(36) NOT NULL,
+	file_checksum varchar(36) NOT NULL,
+	file_full_name text NOT NULL,
+	file_short_name text,
+	file_extension varchar(100),
+	file_full_path text,
+	file_location text,
+	file_size int,
+	file_date timestamp,
+	file_type varchar(255),
+	file_download_count int,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	PRIMARY KEY (file_metadata_uuid)
+);
 
 CREATE TABLE security.sec_app (
 	app_uuid varchar(36) NOT NULL,
@@ -135,7 +155,7 @@ CREATE TABLE security.sec_function (
 );
 CREATE TABLE security.sec_user (
 	user_uuid varchar(36) NOT NULL,
-	username varchar(25) NOT NULL,
+	username varchar(50) NOT NULL,
 	"password" text,
 	account_enabled boolean DEFAULT true NOT NULL,
 	account_non_expired boolean DEFAULT true NOT NULL,
@@ -250,7 +270,6 @@ CREATE TABLE security.sec_occupation (
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
-	role_uuid varchar(36) NOT NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (occupation_uuid)
 );
@@ -317,6 +336,7 @@ CREATE TABLE security.sec_certification (
 	modified_date timestamp,
 	modified_by varchar(25),
 	employee_uuid varchar(36) NOT NULL,
+	file_metadata_uuid varchar(36) NULL,
 	PRIMARY KEY (certification_uuid)
 );
 CREATE TABLE security.sec_business_partner (
@@ -351,25 +371,7 @@ CREATE TABLE security.sec_b2b (
 	bp_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (b2b_uuid)
 );
-CREATE TABLE security.sec_outservice (
-	outservice_uuid varchar(36) NOT NULL,
-	outservice_non_expired boolean DEFAULT true NOT NULL,
-	outservice_start_date timestamp NULL,
-	outservice_end_date timestamp NULL,
-	corporate_name varchar(255) NOT NULL,
-	bp_name varchar(255) NOT NULL,
-	"version" int DEFAULT 0 NOT NULL,
-	is_active boolean DEFAULT true NOT NULL,
-	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
-	modified_date timestamp,
-	modified_by varchar(25),
-	employee_uuid varchar(36) NOT NULL,
-	corporate_uuid varchar(36) NOT NULL,
-	bp_uuid varchar(36) NOT NULL,
-	PRIMARY KEY (outservice_uuid)
-);
-
+ALTER TABLE security.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE security.sec_app ADD CONSTRAINT app_code UNIQUE (app_code);
 ALTER TABLE security.sec_sys_auth ADD CONSTRAINT sys_auth_code UNIQUE (sys_auth_code);
 ALTER TABLE security.sec_user ADD CONSTRAINT username UNIQUE (username);
@@ -427,10 +429,6 @@ ALTER TABLE security.sec_settings
 	REFERENCES security.sec_user (user_uuid);
 
 ALTER TABLE security.sec_occupation
-	ADD FOREIGN KEY (role_uuid) 
-	REFERENCES security.sec_role (role_uuid);
-
-ALTER TABLE security.sec_occupation
 	ADD FOREIGN KEY (corporate_uuid) 
 	REFERENCES security.sec_corporate (corporate_uuid);
 
@@ -458,23 +456,15 @@ ALTER TABLE security.sec_certification
 	ADD FOREIGN KEY (employee_uuid) 
 	REFERENCES security.sec_employee (employee_uuid);
 
+ALTER TABLE security.sec_certification
+	ADD FOREIGN KEY (file_metadata_uuid) 
+	REFERENCES security.file_metadata (file_metadata_uuid);
+
 ALTER TABLE security.sec_b2b
 	ADD FOREIGN KEY (corporate_uuid) 
 	REFERENCES security.sec_corporate (corporate_uuid);
 
 ALTER TABLE security.sec_b2b
-	ADD FOREIGN KEY (bp_uuid) 
-	REFERENCES security.sec_business_partner (bp_uuid);
-
-ALTER TABLE security.sec_outservice
-	ADD FOREIGN KEY (employee_uuid) 
-	REFERENCES security.sec_employee (employee_uuid);
-
-ALTER TABLE security.sec_outservice
-	ADD FOREIGN KEY (corporate_uuid) 
-	REFERENCES security.sec_corporate (corporate_uuid);
-
-ALTER TABLE security.sec_outservice
 	ADD FOREIGN KEY (bp_uuid) 
 	REFERENCES security.sec_business_partner (bp_uuid);
 
@@ -489,6 +479,8 @@ GRANT ALL ON TABLE security.oauth_client_token TO dongkap;
 GRANT ALL ON TABLE security.oauth_code TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_refresh_token TO dongkap;
+
+GRANT ALL ON TABLE security.file_metadata TO dongkap;
 
 GRANT ALL ON TABLE security.sec_app TO dongkap;
 
@@ -527,5 +519,3 @@ GRANT ALL ON TABLE security.sec_certification TO dongkap;
 GRANT ALL ON TABLE security.sec_business_partner TO dongkap;
 
 GRANT ALL ON TABLE security.sec_b2b TO dongkap;
-
-GRANT ALL ON TABLE security.sec_outservice TO dongkap;

@@ -14,5 +14,3 @@ CREATE SCHEMA report
     AUTHORIZATION dongkap;
 CREATE SCHEMA notification
     AUTHORIZATION dongkap;
-CREATE SCHEMA "file"
-    AUTHORIZATION dongkap;
