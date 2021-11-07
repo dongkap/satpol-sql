@@ -48,35 +48,18 @@ CREATE TABLE security.oauth_refresh_token (
 	authentication bytea
 );
 
-CREATE TABLE security.sec_corporate (
-	corporate_uuid varchar(36) NOT NULL,
-	corporate_id varchar(50) NOT NULL,
-	corporate_name varchar(255) NOT NULL,
-	corporate_non_expired boolean DEFAULT true NOT NULL,
-	email varchar(150),
-	address text,
-	telp_number varchar(20),
-	fax_number varchar(20),
+CREATE TABLE security.sec_app (
+	app_uuid varchar(36) NOT NULL,
+	"app_code" varchar(50) NOT NULL,
+	"app_name" varchar(50) NOT NULL,
+	description text,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
-	PRIMARY KEY (corporate_uuid)
-);
-CREATE TABLE security.sec_function (
-	function_uuid varchar(36) NOT NULL,
-	menu_uuid varchar(36) NOT NULL,
-	role_uuid varchar(36) NOT NULL,
-	"access" varchar(30) DEFAULT 'read' NOT NULL,
-	"version" int DEFAULT 0 NOT NULL,
-	is_active boolean DEFAULT true NOT NULL,
-	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
-	modified_date timestamp,
-	modified_by varchar(25),
-	PRIMARY KEY (function_uuid)
+	PRIMARY KEY (app_uuid)
 );
 CREATE TABLE security.sec_menu (
 	menu_uuid varchar(36) NOT NULL,
@@ -112,15 +95,6 @@ CREATE TABLE security.sec_menu_i18n (
 	modified_by varchar(25),
 	PRIMARY KEY (menu_i18n_uuid)
 );
-
-CREATE TABLE security.sec_r_user_corporate (
-	user_uuid varchar(36) NOT NULL,
-	corporate_uuid varchar(36) NOT NULL
-);
-CREATE TABLE security.sec_r_user_role (
-	user_uuid varchar(36) NOT NULL,
-	role_uuid varchar(36) NOT NULL
-);
 CREATE TABLE security.sec_sys_auth (
 	sys_auth_uuid varchar(36) NOT NULL,
 	sys_auth_code varchar(50) NOT NULL,
@@ -146,6 +120,19 @@ CREATE TABLE security.sec_role (
 	sys_auth_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (role_uuid)
 );
+CREATE TABLE security.sec_function (
+	function_uuid varchar(36) NOT NULL,
+	menu_uuid varchar(36) NOT NULL,
+	role_uuid varchar(36) NOT NULL,
+	"access" varchar(30) DEFAULT 'read' NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	PRIMARY KEY (function_uuid)
+);
 CREATE TABLE security.sec_user (
 	user_uuid varchar(36) NOT NULL,
 	username varchar(25) NOT NULL,
@@ -168,6 +155,14 @@ CREATE TABLE security.sec_user (
 	modified_date timestamp,
 	modified_by varchar(25),
 	PRIMARY KEY (user_uuid)
+);
+CREATE TABLE security.sec_r_user_app (
+	user_uuid varchar(36) NOT NULL,
+	app_uuid varchar(36) NOT NULL
+);
+CREATE TABLE security.sec_r_user_role (
+	user_uuid varchar(36) NOT NULL,
+	role_uuid varchar(36) NOT NULL
 );
 CREATE TABLE security.sec_contact_user (
 	contact_user_uuid varchar(36) NOT NULL,
@@ -228,6 +223,23 @@ CREATE TABLE security.sec_settings (
 	PRIMARY KEY (settings_uuid)
 );
 
+CREATE TABLE security.sec_corporate (
+	corporate_uuid varchar(36) NOT NULL,
+	corporate_code varchar(50) NOT NULL,
+	corporate_name varchar(255) NOT NULL,
+	corporate_non_expired boolean DEFAULT true NOT NULL,
+	email varchar(150),
+	address text,
+	telp_number varchar(20),
+	fax_number varchar(20),
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	PRIMARY KEY (corporate_uuid)
+);
 CREATE TABLE security.sec_occupation (
 	occupation_uuid varchar(36) NOT NULL,
 	occupation_code varchar(50) NOT NULL,
@@ -245,8 +257,6 @@ CREATE TABLE security.sec_occupation (
 CREATE TABLE security.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
-	occupation_code varchar(50) NOT NULL,
-	occupation_name varchar(50) NOT NULL,
 	last_education_degree varchar(50) NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
@@ -254,7 +264,11 @@ CREATE TABLE security.sec_employee (
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
+	parent_uuid varchar(36) NULL,
 	user_uuid varchar(36) NOT NULL,
+	occupation_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NULL,
 	PRIMARY KEY (employee_uuid)
 );
 CREATE TABLE security.sec_education (
@@ -305,18 +319,64 @@ CREATE TABLE security.sec_certification (
 	employee_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (certification_uuid)
 );
+CREATE TABLE security.sec_business_partner (
+	bp_uuid varchar(36) NOT NULL,
+	bp_code varchar(50) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	email varchar(150),
+	address text,
+	telp_number varchar(20),
+	fax_number varchar(20),
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	PRIMARY KEY (bp_uuid)
+);
+CREATE TABLE security.sec_b2b (
+	b2b_uuid varchar(36) NOT NULL,
+	b2b_non_expired boolean DEFAULT true NOT NULL,
+	b2b_expired_time timestamp NULL,
+	corporate_name varchar(255) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	corporate_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NOT NULL,
+	PRIMARY KEY (b2b_uuid)
+);
+CREATE TABLE security.sec_outservice (
+	outservice_uuid varchar(36) NOT NULL,
+	outservice_non_expired boolean DEFAULT true NOT NULL,
+	outservice_start_date timestamp NULL,
+	outservice_end_date timestamp NULL,
+	corporate_name varchar(255) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	employee_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NOT NULL,
+	PRIMARY KEY (outservice_uuid)
+);
 
+ALTER TABLE security.sec_app ADD CONSTRAINT app_code UNIQUE (app_code);
+ALTER TABLE security.sec_sys_auth ADD CONSTRAINT sys_auth_code UNIQUE (sys_auth_code);
 ALTER TABLE security.sec_user ADD CONSTRAINT username UNIQUE (username);
 ALTER TABLE security.sec_user ADD CONSTRAINT email UNIQUE (email);
-ALTER TABLE security.sec_corporate ADD CONSTRAINT corporate_id UNIQUE (corporate_id);
-
-ALTER TABLE security.sec_function
-	ADD FOREIGN KEY (role_uuid) 
-	REFERENCES security.sec_role (role_uuid);
-
-ALTER TABLE security.sec_function
-	ADD FOREIGN KEY (menu_uuid) 
-	REFERENCES security.sec_menu (menu_uuid);
+ALTER TABLE security.sec_personal_info ADD CONSTRAINT id_number UNIQUE (id_number);
+ALTER TABLE security.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
+ALTER TABLE security.sec_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
 
 ALTER TABLE security.sec_menu
 	ADD FOREIGN KEY (parent_uuid) 
@@ -326,13 +386,21 @@ ALTER TABLE security.sec_menu_i18n
 	ADD FOREIGN KEY (menu_uuid) 
 	REFERENCES security.sec_menu (menu_uuid);
 
-ALTER TABLE security.sec_r_user_corporate
-	ADD FOREIGN KEY (corporate_uuid) 
-	REFERENCES security.sec_corporate (corporate_uuid);
+ALTER TABLE security.sec_function
+	ADD FOREIGN KEY (role_uuid) 
+	REFERENCES security.sec_role (role_uuid);
 
-ALTER TABLE security.sec_r_user_corporate
+ALTER TABLE security.sec_function
+	ADD FOREIGN KEY (menu_uuid) 
+	REFERENCES security.sec_menu (menu_uuid);
+
+ALTER TABLE security.sec_r_user_app
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
+
+ALTER TABLE security.sec_r_user_app
+	ADD FOREIGN KEY (app_uuid) 
+	REFERENCES security.sec_app (app_uuid);
 
 ALTER TABLE security.sec_r_user_role
 	ADD FOREIGN KEY (role_uuid) 
@@ -367,6 +435,14 @@ ALTER TABLE security.sec_occupation
 	REFERENCES security.sec_corporate (corporate_uuid);
 
 ALTER TABLE security.sec_employee
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES security.sec_corporate (corporate_uuid);
+
+ALTER TABLE security.sec_employee
+	ADD FOREIGN KEY (parent_uuid) 
+	REFERENCES security.sec_employee (employee_uuid);
+
+ALTER TABLE security.sec_employee
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
 
@@ -382,6 +458,26 @@ ALTER TABLE security.sec_certification
 	ADD FOREIGN KEY (employee_uuid) 
 	REFERENCES security.sec_employee (employee_uuid);
 
+ALTER TABLE security.sec_b2b
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES security.sec_corporate (corporate_uuid);
+
+ALTER TABLE security.sec_b2b
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES security.sec_business_partner (bp_uuid);
+
+ALTER TABLE security.sec_outservice
+	ADD FOREIGN KEY (employee_uuid) 
+	REFERENCES security.sec_employee (employee_uuid);
+
+ALTER TABLE security.sec_outservice
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES security.sec_corporate (corporate_uuid);
+
+ALTER TABLE security.sec_outservice
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES security.sec_business_partner (bp_uuid);
+
 GRANT ALL ON TABLE security.oauth_access_token TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_approvals TO dongkap;
@@ -394,9 +490,7 @@ GRANT ALL ON TABLE security.oauth_code TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_refresh_token TO dongkap;
 
-GRANT ALL ON TABLE security.sec_corporate TO dongkap;
-
-GRANT ALL ON TABLE security.sec_function TO dongkap;
+GRANT ALL ON TABLE security.sec_app TO dongkap;
 
 GRANT ALL ON TABLE security.sec_menu TO dongkap;
 
@@ -406,17 +500,19 @@ GRANT ALL ON TABLE security.sec_sys_auth TO dongkap;
 
 GRANT ALL ON TABLE security.sec_role TO dongkap;
 
-GRANT ALL ON TABLE security.sec_r_user_corporate TO dongkap;
-
-GRANT ALL ON TABLE security.sec_r_user_role TO dongkap;
+GRANT ALL ON TABLE security.sec_function TO dongkap;
 
 GRANT ALL ON TABLE security.sec_user TO dongkap;
+
+GRANT ALL ON TABLE security.sec_r_user_role TO dongkap;
 
 GRANT ALL ON TABLE security.sec_contact_user TO dongkap;
 
 GRANT ALL ON TABLE security.sec_personal_info TO dongkap;
 
 GRANT ALL ON TABLE security.sec_settings TO dongkap;
+
+GRANT ALL ON TABLE security.sec_corporate TO dongkap;
 
 GRANT ALL ON TABLE security.sec_occupation TO dongkap;
 
@@ -427,3 +523,9 @@ GRANT ALL ON TABLE security.sec_education TO dongkap;
 GRANT ALL ON TABLE security.sec_training TO dongkap;
 
 GRANT ALL ON TABLE security.sec_certification TO dongkap;
+
+GRANT ALL ON TABLE security.sec_business_partner TO dongkap;
+
+GRANT ALL ON TABLE security.sec_b2b TO dongkap;
+
+GRANT ALL ON TABLE security.sec_outservice TO dongkap;
