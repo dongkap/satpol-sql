@@ -20,6 +20,7 @@ CREATE TABLE activity.file_metadata (
 );
 CREATE TABLE activity.assignment_group (
 	assignment_group_uuid varchar(36) NOT NULL,
+	total_assignment int DEFAULT 0 NOT NULL,
 	corporate_code varchar(50) NOT NULL,
 	corporate_name varchar(255) NOT NULL,
 	bp_code varchar(50) NOT NULL,
@@ -111,9 +112,27 @@ CREATE TABLE activity.event (
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
-	assignment_uuid varchar(36) NOT NULL,
+	timesheet_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (event_uuid)
+);
+CREATE TABLE activity.log_inventory (
+	log_inventory_uuid varchar(36) NOT NULL,
+	asset_code varchar(50) NOT NULL,
+	asset_name varchar(255) NOT NULL,
+	asset_condition varchar(50) NOT NULL,
+	quantity int DEFAULT 1 NOT NULL,
+	description text NULL,
+	checked_date timestamp NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	timesheet_uuid varchar(36) NOT NULL,
+	file_metadata_uuid varchar(36) NULL,
+	PRIMARY KEY (log_inventory_uuid)
 );
 CREATE TABLE activity.guest_book (
 	guest_book_uuid varchar(36) NOT NULL,
@@ -164,10 +183,18 @@ ALTER TABLE activity.timesheet_detail
 	REFERENCES activity.file_metadata (file_metadata_uuid);
 
 ALTER TABLE activity.event
-	ADD FOREIGN KEY (assignment_uuid) 
-	REFERENCES activity.assignment (assignment_uuid);
+	ADD FOREIGN KEY (timesheet_uuid) 
+	REFERENCES activity.timesheet (timesheet_uuid);
 
 ALTER TABLE activity.event
+	ADD FOREIGN KEY (file_metadata_uuid) 
+	REFERENCES activity.file_metadata (file_metadata_uuid);
+
+ALTER TABLE activity.log_inventory
+	ADD FOREIGN KEY (timesheet_uuid) 
+	REFERENCES activity.timesheet (timesheet_uuid);
+
+ALTER TABLE activity.log_inventory
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES activity.file_metadata (file_metadata_uuid);
 
@@ -190,5 +217,7 @@ GRANT ALL ON TABLE activity.timesheet TO dongkap;
 GRANT ALL ON TABLE activity.timesheet_detail TO dongkap;
 
 GRANT ALL ON TABLE activity.event TO dongkap;
+
+GRANT ALL ON TABLE activity.log_inventory TO dongkap;
 
 GRANT ALL ON TABLE activity.guest_book TO dongkap;

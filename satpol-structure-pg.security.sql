@@ -287,7 +287,6 @@ CREATE TABLE security.sec_employee (
 	user_uuid varchar(36) NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
 	corporate_uuid varchar(36) NOT NULL,
-	bp_uuid varchar(36) NULL,
 	file_metadata_uuid varchar(36),
 	PRIMARY KEY (employee_uuid)
 );
@@ -340,38 +339,6 @@ CREATE TABLE security.sec_certification (
 	file_metadata_uuid varchar(36),
 	PRIMARY KEY (certification_uuid)
 );
-CREATE TABLE security.sec_business_partner (
-	bp_uuid varchar(36) NOT NULL,
-	bp_code varchar(50) NOT NULL,
-	bp_name varchar(255) NOT NULL,
-	email varchar(150),
-	address text,
-	telp_number varchar(20),
-	fax_number varchar(20),
-	"version" int DEFAULT 0 NOT NULL,
-	is_active boolean DEFAULT true NOT NULL,
-	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
-	modified_date timestamp,
-	modified_by varchar(25),
-	PRIMARY KEY (bp_uuid)
-);
-CREATE TABLE security.sec_b2b (
-	b2b_uuid varchar(36) NOT NULL,
-	b2b_non_expired boolean DEFAULT true NOT NULL,
-	b2b_expired_time timestamp,
-	corporate_name varchar(255) NOT NULL,
-	bp_name varchar(255) NOT NULL,
-	"version" int DEFAULT 0 NOT NULL,
-	is_active boolean DEFAULT true NOT NULL,
-	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
-	modified_date timestamp,
-	modified_by varchar(25),
-	corporate_uuid varchar(36) NOT NULL,
-	bp_uuid varchar(36) NOT NULL,
-	PRIMARY KEY (b2b_uuid)
-);
 ALTER TABLE security.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE security.sec_app ADD CONSTRAINT app_code UNIQUE (app_code);
 ALTER TABLE security.sec_sys_auth ADD CONSTRAINT sys_auth_code UNIQUE (sys_auth_code);
@@ -379,7 +346,6 @@ ALTER TABLE security.sec_user ADD CONSTRAINT username UNIQUE (username);
 ALTER TABLE security.sec_user ADD CONSTRAINT email UNIQUE (email);
 ALTER TABLE security.sec_personal_info ADD CONSTRAINT id_number UNIQUE (id_number);
 ALTER TABLE security.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
-ALTER TABLE security.sec_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
 
 ALTER TABLE security.sec_menu
 	ADD FOREIGN KEY (parent_uuid) 
@@ -465,14 +431,6 @@ ALTER TABLE security.sec_certification
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES security.file_metadata (file_metadata_uuid);
 
-ALTER TABLE security.sec_b2b
-	ADD FOREIGN KEY (corporate_uuid) 
-	REFERENCES security.sec_corporate (corporate_uuid);
-
-ALTER TABLE security.sec_b2b
-	ADD FOREIGN KEY (bp_uuid) 
-	REFERENCES security.sec_business_partner (bp_uuid);
-
 GRANT ALL ON TABLE security.oauth_access_token TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_approvals TO dongkap;
@@ -520,7 +478,3 @@ GRANT ALL ON TABLE security.sec_education TO dongkap;
 GRANT ALL ON TABLE security.sec_training TO dongkap;
 
 GRANT ALL ON TABLE security.sec_certification TO dongkap;
-
-GRANT ALL ON TABLE security.sec_business_partner TO dongkap;
-
-GRANT ALL ON TABLE security.sec_b2b TO dongkap;

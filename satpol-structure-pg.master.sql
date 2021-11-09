@@ -1,3 +1,54 @@
+CREATE TABLE master.mst_business_partner (
+	bp_uuid varchar(36) NOT NULL,
+	bp_code varchar(50) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	email varchar(150),
+	address text,
+	telp_number varchar(20),
+	fax_number varchar(20),
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	PRIMARY KEY (bp_uuid)
+);
+CREATE TABLE master.mst_b2b (
+	b2b_uuid varchar(36) NOT NULL,
+	b2b_non_expired boolean DEFAULT true NOT NULL,
+	b2b_expired_time timestamp,
+	corporate_code varchar(50) NOT NULL,
+	corporate_name varchar(255) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	bp_uuid varchar(36) NOT NULL,
+	PRIMARY KEY (b2b_uuid)
+);
+CREATE TABLE master.mst_asset (
+	asset_uuid varchar(36) NOT NULL,
+	asset_code varchar(50) NOT NULL,
+	asset_name varchar(255) NOT NULL,
+	asset_condition varchar(50) NOT NULL,
+	quantity int DEFAULT 1 NOT NULL,
+	description text NULL,
+	corporate_code varchar(50) NOT NULL,
+	corporate_name varchar(255) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	"version" int DEFAULT 0 NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
+	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
+	created_by varchar(25),
+	modified_date timestamp,
+	modified_by varchar(25),
+	bp_uuid varchar(36) NOT NULL,
+	PRIMARY KEY (asset_uuid)
+);
 CREATE TABLE master.mst_country (
 	country_uuid varchar(36) NOT NULL,
 	country_code varchar(3) NOT NULL,
@@ -157,6 +208,18 @@ CREATE TABLE master.mst_parameter_i18n (
 	modified_by varchar(25),
 	PRIMARY KEY (parameter_i18n_uuid)
 );
+
+ALTER TABLE master.mst_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
+ALTER TABLE master.mst_asset ADD CONSTRAINT asset_code UNIQUE (asset_code);
+
+ALTER TABLE master.mst_b2b
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES master.mst_business_partner (bp_uuid);
+
+ALTER TABLE master.mst_asset
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES master.mst_business_partner (bp_uuid);
+
 ALTER TABLE master.mst_city
 	ADD FOREIGN KEY (province_id) 
 	REFERENCES master.mst_province ("id");
@@ -208,6 +271,12 @@ ALTER TABLE master.mst_parameter
 ALTER TABLE master.mst_parameter_i18n
 	ADD FOREIGN KEY (parameter_uuid) 
 	REFERENCES master.mst_parameter (parameter_uuid);
+
+GRANT ALL ON TABLE master.mst_business_partner TO dongkap;
+
+GRANT ALL ON TABLE master.mst_b2b TO dongkap;
+
+GRANT ALL ON TABLE master.mst_asset TO dongkap;
 
 GRANT ALL ON TABLE master.mst_city TO dongkap;
 
