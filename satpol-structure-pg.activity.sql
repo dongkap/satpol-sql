@@ -1,3 +1,29 @@
+CREATE TABLE activity.sec_corporate (
+	corporate_uuid varchar(36) NOT NULL,
+	corporate_code varchar(50) NOT NULL,
+	corporate_name varchar(255) NOT NULL,
+	PRIMARY KEY (corporate_uuid)
+);
+CREATE TABLE activity.sec_employee (
+	employee_uuid varchar(36) NOT NULL,
+	id_employee varchar(50) NOT NULL,
+	username varchar(50) NOT NULL,
+	occupation_code varchar(50) NOT NULL,
+	occupation_name varchar(50) NOT NULL,
+	PRIMARY KEY (employee_uuid)
+);
+CREATE TABLE activity.mst_business_partner (
+	bp_uuid varchar(36) NOT NULL,
+	bp_code varchar(50) NOT NULL,
+	bp_name varchar(255) NOT NULL,
+	PRIMARY KEY (bp_uuid)
+);
+CREATE TABLE activity.mst_asset (
+	asset_uuid varchar(36) NOT NULL,
+	asset_code varchar(50) NOT NULL,
+	asset_name varchar(255) NOT NULL,
+	PRIMARY KEY (asset_uuid)
+);
 CREATE TABLE activity.file_metadata (
 	file_metadata_uuid varchar(36) NOT NULL,
 	file_checksum varchar(36) NOT NULL,
@@ -21,16 +47,14 @@ CREATE TABLE activity.file_metadata (
 CREATE TABLE activity.assignment_group (
 	assignment_group_uuid varchar(36) NOT NULL,
 	total_assignment int DEFAULT 0 NOT NULL,
-	corporate_code varchar(50) NOT NULL,
-	corporate_name varchar(255) NOT NULL,
-	bp_code varchar(50) NOT NULL,
-	bp_name varchar(255) NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
+	corporate_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (assignment_group_uuid)
 );
 CREATE TABLE activity.assignment (
@@ -38,11 +62,6 @@ CREATE TABLE activity.assignment (
 	assignment_number varchar(50) NOT NULL,
 	assignment_start_date timestamp,
 	assignment_end_date timestamp,
-	username varchar(50) NOT NULL,
-	id_number varchar(50) NOT NULL,
-	employee_fullname varchar(75) NOT NULL,
-	occupation_code varchar(50) NOT NULL,
-	occupation_name varchar(50) NOT NULL,
 	auto_approved boolean DEFAULT true NOT NULL,
 	is_approved boolean DEFAULT true NOT NULL,
 	approved_date timestamp,
@@ -54,6 +73,7 @@ CREATE TABLE activity.assignment (
 	modified_date timestamp,
 	modified_by varchar(25),
 	assignment_group_uuid varchar(36) NOT NULL,
+	employee_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (assignment_uuid)
 );
 CREATE TABLE activity.timesheet (
@@ -118,8 +138,6 @@ CREATE TABLE activity.event (
 );
 CREATE TABLE activity.log_inventory (
 	log_inventory_uuid varchar(36) NOT NULL,
-	asset_code varchar(50) NOT NULL,
-	asset_name varchar(255) NOT NULL,
 	asset_condition varchar(50) NOT NULL,
 	quantity int DEFAULT 1 NOT NULL,
 	description text NULL,
@@ -132,6 +150,7 @@ CREATE TABLE activity.log_inventory (
 	modified_by varchar(25),
 	timesheet_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36) NULL,
+	asset_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (log_inventory_uuid)
 );
 CREATE TABLE activity.guest_book (
@@ -159,12 +178,28 @@ CREATE TABLE activity.guest_book (
 	PRIMARY KEY (guest_book_uuid)
 );
 
+ALTER TABLE activity.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
+ALTER TABLE activity.sec_employee ADD CONSTRAINT username UNIQUE (username);
+ALTER TABLE activity.mst_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
+ALTER TABLE activity.mst_asset ADD CONSTRAINT asset_code UNIQUE (asset_code);
 ALTER TABLE activity.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignment_number);
+
+ALTER TABLE activity.assignment_group
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES activity.sec_corporate (corporate_uuid);
+
+ALTER TABLE activity.assignment_group
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES activity.mst_business_partner (bp_uuid);
 
 ALTER TABLE activity.assignment
 	ADD FOREIGN KEY (assignment_group_uuid) 
 	REFERENCES activity.assignment_group (assignment_group_uuid);
+
+ALTER TABLE activity.assignment
+	ADD FOREIGN KEY (employee_uuid) 
+	REFERENCES activity.sec_employee (employee_uuid);
 
 ALTER TABLE activity.timesheet
 	ADD FOREIGN KEY (assignment_uuid) 
@@ -198,6 +233,10 @@ ALTER TABLE activity.log_inventory
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES activity.file_metadata (file_metadata_uuid);
 
+ALTER TABLE activity.log_inventory
+	ADD FOREIGN KEY (asset_uuid) 
+	REFERENCES activity.mst_asset (asset_uuid);
+
 ALTER TABLE activity.guest_book
 	ADD FOREIGN KEY (assignment_group_uuid) 
 	REFERENCES activity.assignment_group (assignment_group_uuid);
@@ -205,6 +244,14 @@ ALTER TABLE activity.guest_book
 ALTER TABLE activity.guest_book
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES activity.file_metadata (file_metadata_uuid);
+
+GRANT ALL ON TABLE activity.sec_corporate TO dongkap;
+
+GRANT ALL ON TABLE activity.sec_employee TO dongkap;
+
+GRANT ALL ON TABLE activity.mst_business_partner TO dongkap;
+
+GRANT ALL ON TABLE activity.mst_asset TO dongkap;
 
 GRANT ALL ON TABLE activity.file_metadata TO dongkap;
 
