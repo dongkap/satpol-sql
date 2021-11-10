@@ -1,41 +1,32 @@
 --
--- Dumping data for table sec_role
---
-
-INSERT INTO security.sec_role (role_uuid, role_name, description, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
-('06be80df-5c41-42a7-9050-b328312d2f3a', 'ROLE_ADMIN', 'Role Administrator', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL),
-('d68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8', 'ROLE_END', 'Role End User', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL);
-
---
--- Dumping data for table sec_user
--- admin | admin123
--- user | user123
--- male | user123
--- female | user123
---
-
-INSERT INTO security.sec_user (user_uuid, username, password, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
-('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'admin', '$2a$13$iJoBglX2Rx/AkTc30eCDx.rHUfVyI3nkd3rCpyiCHXdnmqZmKm1Hm', true, true, true, true, 'admin.dongkap@mailinator.com', NULL, NULL, 'ROLE_ADMIN', 0, true, '2018-12-02 20:50:29', NULL, NULL, NULL),
-('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'user', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', true, true, true, true, 'user.dongkap@mailinator.com', NULL, NULL, 'ROLE_END', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
-('e24b76e6-dee2-4262-80a1-f00f554d0440', 'male', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', true, true, true, true, 'male.dongkap@mailinator.com', NULL, NULL, 'ROLE_END', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
-('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'female', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', true, true, true, true, 'female.dongkap@mailinator.com', NULL, NULL, 'ROLE_END', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL);
-
---
 -- Dumping data for table oauth_client_details
--- do-core | secretdo01
--- do-mobile | secretdo02
+-- smart-core | secretdo01
+-- smart-mobile | secretdo02
 --
 
 INSERT INTO security.oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove) VALUES
-('do-core', 'profile,security,master,notification,general,file,report,workflow,finance', '$2a$13$qq7441xnpjEh.24xLE9xyeMZgRggZ7zeoFsXtfC6/NSoyfnJaWmZy', 'read,write,trust,check_token', 'password,refresh_token', '', 'ROLE_ADMIN,ROLE_END', 7200, 2592000, NULL, '1'),
-('do-mobile', 'profile,security,master,notification,file,report,finance', '$2a$13$CrQeQDIECnBXzGm7QbnK1ulWrtVG7/82YL72U5SLjO.KZIk8kel9O', 'read,write,check_token', 'password,refresh_token', '', 'ROLE_END', 7200, 2592000, NULL, '1');
+('smart-core', 'profile,security,master,notification,activity,general,report', '$2a$13$qq7441xnpjEh.24xLE9xyeMZgRggZ7zeoFsXtfC6/NSoyfnJaWmZy', 'read,write,trust,check_token', 'password,refresh_token', '', 'ROLE_ADMIN,ROLE_END', 7200, 2592000, NULL, '1'),
+('smart-mobile', 'profile,security,master,notification,activity,general,report', '$2a$13$CrQeQDIECnBXzGm7QbnK1ulWrtVG7/82YL72U5SLjO.KZIk8kel9O', 'read,write,check_token', 'password,refresh_token', '', 'ROLE_END', 7200, 2592000, NULL, '1');
 
 --
--- Dumping data for table sec_corporate
+-- Dumping data for table sec_app
 --
 
-INSERT INTO security.sec_corporate(corporate_uuid, corporate_id, corporate_name, corporate_non_expired, email, address, telp_number) VALUES
-('0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'Dongkap', 'Dongkap', true, 'ridla.fadilah@gmail.com', 'Tangerang', '02175674774');
+INSERT INTO security.sec_app (app_uuid, app_code, app_name, description, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
+('3a88723b-8eee-4def-bd45-78d3e2c68d65', 'DONGKAP', 'DONGKAP', 'Dongkap Application', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL)
+('ab7c3aab-b083-4954-af1d-cea6669f0e51', 'SMART', 'SMART', 'SMART Tanggap Application', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL);
+
+--
+-- Dumping data for table sec_sys_auth
+--
+
+INSERT INTO security.sec_sys_auth (sys_auth_uuid, sys_auth_code, sys_auth_name, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
+('71e16acd-12bd-46d5-b382-5d85112ecc43', 'SYS_ADMINISTRATOR', 'System Administrator', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL),
+('a1250841-30a3-4181-afa9-4c3676f207e4', 'SYS_STAFF_ADMIN', 'System Staff Admin', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL),
+('56f55742-be76-449f-8753-70ab368c5696', 'SYS_MANAGER', 'System Manager', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL),
+('0a5f0702-3855-4bbd-9d9c-af0ef572b79b', 'SYS_SUPERVISOR', 'System Supervisor', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL),
+('d0512dc3-4ed1-4690-aab2-1cafcc9b76d1', 'SYS_MEMBER', 'System Member', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL),
+('57bb8945-dffa-4d84-a181-4c076008d797', 'SYS_END_USER', 'System End User', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL);
 
 --
 -- Dumping data for table sec_menu
@@ -100,6 +91,18 @@ INSERT INTO security.sec_menu_i18n (menu_i18n_uuid, menu_uuid, locale_code, titl
 ('838cca1c-9873-4882-bebd-57e1d4dccaf2', '1de67261-d2f9-4a01-bba2-68db9b3ad8c3', 'id-ID', 'Pengaturan', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL);
 
 --
+-- Dumping data for table sec_role
+--
+
+INSERT INTO security.sec_role (role_uuid, role_name, description, "version", is_active, created_date, created_by, modified_date, modified_by, sys_auth_uuid) VALUES
+('06be80df-5c41-42a7-9050-b328312d2f3a', 'ROLE_ADMINISTRATOR', 'Role Administrator', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL, '71e16acd-12bd-46d5-b382-5d85112ecc43'),
+('d68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8', 'ROLE_STAFF_ADMIN', 'Role Staff Admin', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, 'a1250841-30a3-4181-afa9-4c3676f207e4'),
+('abdcde51-bf9d-4c22-9256-b6661b6f0d05', 'ROLE_MANAGER', 'Role Manager', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '56f55742-be76-449f-8753-70ab368c5696'),
+('b3ad79e1-2153-45a8-a231-8673ba1d28dd', 'ROLE_SUPERVISOR', 'Role Supervisor', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0a5f0702-3855-4bbd-9d9c-af0ef572b79b'),
+('640c7083-7e41-4564-9501-3c8d53271412', 'ROLE_MEMBER', 'Role Member Guard', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, 'd0512dc3-4ed1-4690-aab2-1cafcc9b76d1'),
+('a3775be8-7d45-497f-b7cb-df30f26071fc', 'ROLE_END_USER', 'Role Partner', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '57bb8945-dffa-4d84-a181-4c076008d797');
+
+--
 -- Dumping data for table sec_function
 --
 
@@ -127,14 +130,30 @@ INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, v
 ('36b8f700-e4cf-45d2-aaf8-f1e3e7dbe836', '1de67261-d2f9-4a01-bba2-68db9b3ad8c3', 'd68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null);
 
 --
--- Dumping data for table sec_r_user_corporate
+-- Dumping data for table sec_user
+-- admin | admin123
+-- adminsmart | user123
+-- managersmart | user123
+-- koorlapsmart | user123
 --
 
-INSERT INTO security.sec_r_user_corporate (user_uuid, corporate_uuid) VALUES
-('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
-('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
-('e24b76e6-dee2-4262-80a1-f00f554d0440', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
-('f2cc13e4-f865-4850-bf7c-8fc814e88915', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca');
+INSERT INTO security.sec_user (user_uuid, username, password, fullname, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
+('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'admin', '$2a$13$iJoBglX2Rx/AkTc30eCDx.rHUfVyI3nkd3rCpyiCHXdnmqZmKm1Hm', 'Administrator', true, true, true, true, 'ridla.fadilah@gmail.com', NULL, NULL, 'ROLE_ADMINISTRATOR', 0, true, '2018-12-02 20:50:29', NULL, NULL, NULL),
+('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'adminsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Staff Admin SMART', true, true, true, true, 'satpamsmart@yahoo.co.id', NULL, NULL, 'ROLE_STAFF_ADMIN', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('e24b76e6-dee2-4262-80a1-f00f554d0440', 'managersmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Manager SMART', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'koorlapsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Koorlap SMART', true, true, true, true, 'koorlap.smart@mailinator.com', NULL, NULL, 'ROLE_SUPERVISOR', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('b223fb75-bea0-4939-b04b-9aede45bf7cf', 'guardsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Guard Member SMART', true, true, true, true, 'guardmember.smart@mailinator.com', NULL, NULL, 'ROLE_MEMBER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL);
+
+--
+-- Dumping data for table sec_r_user_app
+--
+
+INSERT INTO security.sec_r_user_app (user_uuid, app_uuid) VALUES
+('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', '3a88723b-8eee-4def-bd45-78d3e2c68d65'),
+('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'ab7c3aab-b083-4954-af1d-cea6669f0e51'),
+('e24b76e6-dee2-4262-80a1-f00f554d0440', 'ab7c3aab-b083-4954-af1d-cea6669f0e51'),
+('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'ab7c3aab-b083-4954-af1d-cea6669f0e51'),
+('b223fb75-bea0-4939-b04b-9aede45bf7cf', 'ab7c3aab-b083-4954-af1d-cea6669f0e51');
 
 --
 -- Dumping data for table sec_r_user_role
@@ -143,8 +162,28 @@ INSERT INTO security.sec_r_user_corporate (user_uuid, corporate_uuid) VALUES
 INSERT INTO security.sec_r_user_role (user_uuid, role_uuid) VALUES
 ('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', '06be80df-5c41-42a7-9050-b328312d2f3a'),
 ('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'd68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8'),
-('e24b76e6-dee2-4262-80a1-f00f554d0440', 'd68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8'),
-('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'd68a2ea7-f1cb-484c-a3d4-b669ef3ff3c8');
+('e24b76e6-dee2-4262-80a1-f00f554d0440', 'abdcde51-bf9d-4c22-9256-b6661b6f0d05'),
+('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'b3ad79e1-2153-45a8-a231-8673ba1d28dd'),
+('b223fb75-bea0-4939-b04b-9aede45bf7cf', '640c7083-7e41-4564-9501-3c8d53271412');
+
+--
+-- Dumping data for table sec_contact_user
+--
+	
+INSERT INTO security.sec_contact_user (contact_user_uuid, user_uuid, address, phone_number) VALUES 
+('1af2403b-a4f8-4492-94c1-5d6ab8b4a094', '1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'Tangerang', '02175674774'),
+('d4fd659f-7bd6-4b1c-9127-e2dcf04651b0', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'Jakarta', '02134567891'),
+('b796e574-ac2d-4180-bf09-14dc146fd921', 'e24b76e6-dee2-4262-80a1-f00f554d0440', 'Bandung', '02134567892'),
+('c4fa0235-0e4a-4145-aa3b-779a7ff369c2', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', 'Surabaya', '02134567893');
+
+--
+-- Dumping data for table sec_personal_info
+--
+	
+INSERT INTO security.sec_personal_info (personal_info_uuid, contact_user_uuid, id_number, gender, place_of_birth, date_of_birth) VALUES 
+('2d341632-2fad-4394-a96f-6cfa54500dfc', 'd4fd659f-7bd6-4b1c-9127-e2dcf04651b0'	, '12345678901234561', 'GENDER.MALE', 'Jakarta', '01-01-1990'),
+('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'b796e574-ac2d-4180-bf09-14dc146fd921'	, '12345678901234562', 'GENDER.MALE', 'Bandung', '01-01-1990'),
+('37a8d21a-5e30-46c5-a2be-3d73961d8471', 'c4fa0235-0e4a-4145-aa3b-779a7ff369c2'	, '12345678901234563', 'GENDER.FEMALE', 'Surabaya', '01-01-1990');
 
 --
 -- Dumping data for table sec_settings
@@ -157,20 +196,8 @@ INSERT INTO security.sec_settings (settings_uuid, user_uuid) VALUES
 ('cf35c2cf-c21b-46af-81cb-32d67d744128', 'f2cc13e4-f865-4850-bf7c-8fc814e88915');
 
 --
--- Dumping data for table sec_contact_user
+-- Dumping data for table sec_corporate
 --
-	
-INSERT INTO security.sec_contact_user (contact_user_uuid, user_uuid, fullname, address, phone_number) VALUES 
-('1af2403b-a4f8-4492-94c1-5d6ab8b4a094', '1ac29215-75e8-4e19-b4f1-e076da7ca1ab'	, 'Administrator', 'Tangerang', '02175674774'),
-('d4fd659f-7bd6-4b1c-9127-e2dcf04651b0', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6'	, 'End User', 'Jakarta', '02134567891'),
-('b796e574-ac2d-4180-bf09-14dc146fd921', 'e24b76e6-dee2-4262-80a1-f00f554d0440'	, 'Male User', 'Bandung', '02134567892'),
-('c4fa0235-0e4a-4145-aa3b-779a7ff369c2', 'f2cc13e4-f865-4850-bf7c-8fc814e88915'	, 'Female User', 'Surabaya', '02134567893');
 
---
--- Dumping data for table sec_personal_info
---
-	
-INSERT INTO security.sec_personal_info (personal_info_uuid, contact_user_uuid, id_number, gender, place_of_birth, date_of_birth) VALUES 
-('2d341632-2fad-4394-a96f-6cfa54500dfc', 'd4fd659f-7bd6-4b1c-9127-e2dcf04651b0'	, '12345678901234561', 'GENDER.MALE', 'Jakarta', '01-01-1990'),
-('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'b796e574-ac2d-4180-bf09-14dc146fd921'	, '12345678901234562', 'GENDER.MALE', 'Bandung', '01-01-1990'),
-('37a8d21a-5e30-46c5-a2be-3d73961d8471', 'c4fa0235-0e4a-4145-aa3b-779a7ff369c2'	, '12345678901234563', 'GENDER.FEMALE', 'Surabaya', '01-01-1990');
+INSERT INTO security.sec_corporate(corporate_uuid, corporate_id, corporate_name, corporate_non_expired, email, address, telp_number, fax_number) VALUES
+('0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMART', 'PT. SAHABAT MANDIRI KESATRIA (SMART)', true, 'satpamsmart@yahoo.co.id', 'Jl. Brigjen Hasan Kasim I Purwosari Raya Lr. Simanampang No. 133 RT/RW. 49/10 Kel. Bukit Sangkal Kec. Kalidoni Palembang 30114', '07115615310', '07115615311');
