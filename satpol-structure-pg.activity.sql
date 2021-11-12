@@ -4,12 +4,17 @@ CREATE TABLE activity.sec_corporate (
 	corporate_name varchar(255) NOT NULL,
 	PRIMARY KEY (corporate_uuid)
 );
+CREATE TABLE activity.sec_occupation (
+	occupation_uuid varchar(36) NOT NULL,
+	occupation_code varchar(50) NOT NULL,
+	occupation_name varchar(50) NOT NULL,
+	PRIMARY KEY (occupation_uuid)
+);
 CREATE TABLE activity.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
 	username varchar(50) NOT NULL,
-	occupation_code varchar(50) NOT NULL,
-	occupation_name varchar(50) NOT NULL,
+	occupation_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (employee_uuid)
 );
 CREATE TABLE activity.mst_business_partner (
@@ -185,6 +190,10 @@ ALTER TABLE activity.mst_asset ADD CONSTRAINT asset_code UNIQUE (asset_code);
 ALTER TABLE activity.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignment_number);
 
+ALTER TABLE activity.sec_employee
+	ADD FOREIGN KEY (occupation_uuid) 
+	REFERENCES activity.sec_occupation (occupation_uuid);
+
 ALTER TABLE activity.assignment_group
 	ADD FOREIGN KEY (corporate_uuid) 
 	REFERENCES activity.sec_corporate (corporate_uuid);
@@ -246,6 +255,8 @@ ALTER TABLE activity.guest_book
 	REFERENCES activity.file_metadata (file_metadata_uuid);
 
 GRANT ALL ON TABLE activity.sec_corporate TO dongkap;
+
+GRANT ALL ON TABLE activity.sec_occupation TO dongkap;
 
 GRANT ALL ON TABLE activity.sec_employee TO dongkap;
 

@@ -132,17 +132,18 @@ INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, v
 --
 -- Dumping data for table sec_user
 -- admin | admin123
--- adminsmart | user123
--- managersmart | user123
--- koorlapsmart | user123
+-- abdulronie | user123
+-- ahmadrajab | user123
+-- Ansori | user123
+-- endrianto | user123
 --
 
 INSERT INTO security.sec_user (user_uuid, username, password, fullname, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'admin', '$2a$13$iJoBglX2Rx/AkTc30eCDx.rHUfVyI3nkd3rCpyiCHXdnmqZmKm1Hm', 'Administrator', true, true, true, true, 'ridla.fadilah@gmail.com', NULL, NULL, 'ROLE_ADMINISTRATOR', 0, true, '2018-12-02 20:50:29', NULL, NULL, NULL),
-('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'adminsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Staff Admin SMART', true, true, true, true, 'satpamsmart@yahoo.co.id', NULL, NULL, 'ROLE_STAFF_ADMIN', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
-('e24b76e6-dee2-4262-80a1-f00f554d0440', 'managersmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Manager SMART', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
-('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'koorlapsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Koorlap SMART', true, true, true, true, 'koorlap.smart@mailinator.com', NULL, NULL, 'ROLE_SUPERVISOR', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
-('b223fb75-bea0-4939-b04b-9aede45bf7cf', 'guardsmart', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Guard Member SMART', true, true, true, true, 'guardmember.smart@mailinator.com', NULL, NULL, 'ROLE_MEMBER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL);
+('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'abdulronie', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Abdul Ronie', true, true, true, true, 'satpamsmart@yahoo.co.id', NULL, NULL, 'ROLE_STAFF_ADMIN', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('e24b76e6-dee2-4262-80a1-f00f554d0440', 'ahmadrajab', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Ahmad Rajab Anugerah ', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'jumadi', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Jumadi', true, true, true, true, 'koorlap.smart@mailinator.com', NULL, NULL, 'ROLE_SUPERVISOR', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL),
+('b223fb75-bea0-4939-b04b-9aede45bf7cf', 'indra', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Indra', true, true, true, true, 'guardmember.smart@mailinator.com', NULL, NULL, 'ROLE_MEMBER', 0, true, '2018-12-05 14:50:55', NULL, NULL, NULL);
 
 --
 -- Dumping data for table sec_r_user_app
@@ -172,18 +173,20 @@ INSERT INTO security.sec_r_user_role (user_uuid, role_uuid) VALUES
 	
 INSERT INTO security.sec_contact_user (contact_user_uuid, user_uuid, address, phone_number) VALUES 
 ('1af2403b-a4f8-4492-94c1-5d6ab8b4a094', '1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'Tangerang', '02175674774'),
-('d4fd659f-7bd6-4b1c-9127-e2dcf04651b0', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'Jakarta', '02134567891'),
-('b796e574-ac2d-4180-bf09-14dc146fd921', 'e24b76e6-dee2-4262-80a1-f00f554d0440', 'Bandung', '02134567892'),
-('c4fa0235-0e4a-4145-aa3b-779a7ff369c2', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', 'Surabaya', '02134567893');
+('d4fd659f-7bd6-4b1c-9127-e2dcf04651b0', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'Jakarta', '-'),
+('b796e574-ac2d-4180-bf09-14dc146fd921', 'e24b76e6-dee2-4262-80a1-f00f554d0440', 'Bogor', '-'),
+('c4fa0235-0e4a-4145-aa3b-779a7ff369c2', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', 'Palembang', '-'),
+('25a4ae97-dda5-451c-b35c-17246e4e873e', 'b223fb75-bea0-4939-b04b-9aede45bf7cf', 'Palembang', '-');
 
 --
 -- Dumping data for table sec_personal_info
 --
 	
-INSERT INTO security.sec_personal_info (personal_info_uuid, contact_user_uuid, id_number, gender, place_of_birth, date_of_birth) VALUES 
-('2d341632-2fad-4394-a96f-6cfa54500dfc', 'd4fd659f-7bd6-4b1c-9127-e2dcf04651b0'	, '12345678901234561', 'GENDER.MALE', 'Jakarta', '01-01-1990'),
-('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'b796e574-ac2d-4180-bf09-14dc146fd921'	, '12345678901234562', 'GENDER.MALE', 'Bandung', '01-01-1990'),
-('37a8d21a-5e30-46c5-a2be-3d73961d8471', 'c4fa0235-0e4a-4145-aa3b-779a7ff369c2'	, '12345678901234563', 'GENDER.FEMALE', 'Surabaya', '01-01-1990');
+INSERT INTO security.sec_personal_info (personal_info_uuid, user_uuid, id_number, gender, place_of_birth, date_of_birth) VALUES 
+('2d341632-2fad-4394-a96f-6cfa54500dfc', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6'	, '-', 'GENDER.MALE', 'Jakarta', '01-01-1980'),
+('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'e24b76e6-dee2-4262-80a1-f00f554d0440'	, '-', 'GENDER.MALE', 'Bogor', '01-01-1980'),
+('37a8d21a-5e30-46c5-a2be-3d73961d8471', 'f2cc13e4-f865-4850-bf7c-8fc814e88915'	, '1607010604700002', 'GENDER.MALE', 'Palembang', '04-06-1970'),
+('b5cbfcf7-aaa9-43a7-8d7c-a289b211473a', 'b223fb75-bea0-4939-b04b-9aede45bf7cf'	, '1607061411900001', 'GENDER.MALE', 'Palembang', '15-11-1990');
 
 --
 -- Dumping data for table sec_settings
@@ -193,7 +196,8 @@ INSERT INTO security.sec_settings (settings_uuid, user_uuid) VALUES
 ('d2802cb0-cd2b-44bc-8a2c-431d1e0be597', '1ac29215-75e8-4e19-b4f1-e076da7ca1ab'),
 ('5fa21a4f-6231-4d25-9cdf-d7b1e25ff119', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6'),
 ('e2dbaa84-5755-400e-9104-9013ea96d4bb', 'e24b76e6-dee2-4262-80a1-f00f554d0440'),
-('cf35c2cf-c21b-46af-81cb-32d67d744128', 'f2cc13e4-f865-4850-bf7c-8fc814e88915');
+('cf35c2cf-c21b-46af-81cb-32d67d744128', 'f2cc13e4-f865-4850-bf7c-8fc814e88915'),
+('19c63dac-9351-4702-8979-3f6b7c709fc0', 'b223fb75-bea0-4939-b04b-9aede45bf7cf');
 
 --
 -- Dumping data for table sec_corporate
@@ -201,3 +205,25 @@ INSERT INTO security.sec_settings (settings_uuid, user_uuid) VALUES
 
 INSERT INTO security.sec_corporate(corporate_uuid, corporate_id, corporate_name, corporate_non_expired, email, address, telp_number, fax_number) VALUES
 ('0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMART', 'PT. SAHABAT MANDIRI KESATRIA (SMART)', true, 'satpamsmart@yahoo.co.id', 'Jl. Brigjen Hasan Kasim I Purwosari Raya Lr. Simanampang No. 133 RT/RW. 49/10 Kel. Bukit Sangkal Kec. Kalidoni Palembang 30114', '07115615310', '07115615311');
+
+--
+-- Dumping data for table sec_occupation
+--
+
+INSERT INTO security.sec_occupation (occupation_uuid, occupation_code, occupation_name, "version", is_active, created_date, created_by, modified_date, modified_by, corporate_uuid) VALUES
+('8e357603-d0f8-40a2-ac80-97236c7af8c4', 'KEPALA_SATPAM', 'Kepala Satpam', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
+('90f75c7d-6398-4af6-9d40-2ada6f33b87b', 'KOORDINATOR_LAPANGAN', 'Koordinator Lapangan', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
+('8acafcb4-3c52-49b6-9c09-f77a15bb5435', 'KEPALA_REGU', 'Kepala Regu', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
+('1f92c9ed-8414-4683-8a1b-999e03b3f5bc', 'ANGGOTA_SATPAM', 'Anggota Satpam', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
+('4d72e6dd-d098-44ed-af04-0a7df6cd5226', 'STAFF_ADM_OPERASIONAL', 'Staff Adm Operasional', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca'),
+('af94a020-709b-4fbf-adcb-ce0be48386d4', 'KEPALA_CABANG', 'Kepala Cabang', 0, true, '2018-12-03 11:57:36', NULL, NULL, NULL, '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca');
+
+--
+-- Dumping data for table sec_employee
+--
+	
+INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, last_education_degree) VALUES 
+('5e88d92b-32e3-42e2-973b-898287419f98', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', NULL, '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'S1'),
+('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'e24b76e6-dee2-4262-80a1-f00f554d0440', NULL, 'af94a020-709b-4fbf-adcb-ce0be48386d4', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'S1'),
+('cd678d0b-fe1c-4801-89b0-b6d5013ac285', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', NULL, '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMA'),
+('be1c57e6-2141-413e-85a5-2eec9bc0c4ba', 'b223fb75-bea0-4939-b04b-9aede45bf7cf', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', '1f92c9ed-8414-4683-8a1b-999e03b3f5bc', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMA');
