@@ -167,6 +167,7 @@ CREATE TABLE security.sec_user (
 	verification_code varchar(100),
 	verification_expired timestamp,
 	raw text,
+	image varchar(250),
 	authority_default varchar(100),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
@@ -199,7 +200,6 @@ CREATE TABLE security.sec_contact_user (
 	sub_district_code varchar(100),
 	zipcode varchar(200),
 	phone_number varchar(20),
-	image varchar(250),
 	description text,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
@@ -216,8 +216,8 @@ CREATE TABLE security.sec_personal_info (
 	gender varchar(20) NOT NULL,
 	place_of_birth varchar(50) NOT NULL,
 	date_of_birth date NOT NULL,
-	height int,
-	weight int,
+	height numeric(5,2),
+	weight numeric(5,2),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -287,7 +287,6 @@ CREATE TABLE security.sec_employee (
 	user_uuid varchar(36) NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
 	corporate_uuid varchar(36) NOT NULL,
-	file_metadata_uuid varchar(36),
 	PRIMARY KEY (employee_uuid)
 );
 CREATE TABLE security.sec_education (
@@ -410,10 +409,6 @@ ALTER TABLE security.sec_employee
 ALTER TABLE security.sec_employee
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
-
-ALTER TABLE security.sec_employee
-	ADD FOREIGN KEY (file_metadata_uuid) 
-	REFERENCES security.file_metadata (file_metadata_uuid);
 
 ALTER TABLE security.sec_education
 	ADD FOREIGN KEY (employee_uuid) 
