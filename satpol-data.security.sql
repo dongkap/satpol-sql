@@ -13,7 +13,7 @@ INSERT INTO security.oauth_client_details (client_id, resource_ids, client_secre
 --
 
 INSERT INTO security.sec_app (app_uuid, app_code, app_name, description, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
-('3a88723b-8eee-4def-bd45-78d3e2c68d65', 'DONGKAP', 'DONGKAP', 'Dongkap Application', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL)
+('3a88723b-8eee-4def-bd45-78d3e2c68d65', 'DONGKAP', 'DONGKAP', 'Dongkap Application', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL),
 ('ab7c3aab-b083-4954-af1d-cea6669f0e51', 'SMART', 'SMART', 'SMART Tanggap Application', 0, true, '2018-12-02 20:52:28', NULL, NULL, NULL);
 
 --
@@ -183,10 +183,10 @@ INSERT INTO security.sec_contact_user (contact_user_uuid, user_uuid, address, ph
 --
 	
 INSERT INTO security.sec_personal_info (personal_info_uuid, user_uuid, id_number, gender, place_of_birth, date_of_birth) VALUES 
-('2d341632-2fad-4394-a96f-6cfa54500dfc', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6'	, '-', 'GENDER.MALE', 'Jakarta', '01-01-1980'),
-('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'e24b76e6-dee2-4262-80a1-f00f554d0440'	, '-', 'GENDER.MALE', 'Bogor', '01-01-1980'),
+('2d341632-2fad-4394-a96f-6cfa54500dfc', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6'	, '02', 'GENDER.MALE', 'Jakarta', '01-01-1980'),
+('863b16d2-943c-4a3c-a23a-00774aaaa82c', 'e24b76e6-dee2-4262-80a1-f00f554d0440'	, '01', 'GENDER.MALE', 'Bogor', '01-01-1980'),
 ('37a8d21a-5e30-46c5-a2be-3d73961d8471', 'f2cc13e4-f865-4850-bf7c-8fc814e88915'	, '1607010604700002', 'GENDER.MALE', 'Palembang', '04-06-1970'),
-('b5cbfcf7-aaa9-43a7-8d7c-a289b211473a', 'b223fb75-bea0-4939-b04b-9aede45bf7cf'	, '1607061411900001', 'GENDER.MALE', 'Palembang', '15-11-1990');
+('b5cbfcf7-aaa9-43a7-8d7c-a289b211473a', 'b223fb75-bea0-4939-b04b-9aede45bf7cf'	, '1607061411900001', 'GENDER.MALE', 'Palembang', '11-15-1990');
 
 --
 -- Dumping data for table sec_settings
@@ -203,7 +203,7 @@ INSERT INTO security.sec_settings (settings_uuid, user_uuid) VALUES
 -- Dumping data for table sec_corporate
 --
 
-INSERT INTO security.sec_corporate(corporate_uuid, corporate_id, corporate_name, corporate_non_expired, email, address, telp_number, fax_number) VALUES
+INSERT INTO security.sec_corporate(corporate_uuid, corporate_code, corporate_name, corporate_non_expired, email, address, telp_number, fax_number) VALUES
 ('0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMART', 'PT. SAHABAT MANDIRI KESATRIA (SMART)', true, 'satpamsmart@yahoo.co.id', 'Jl. Brigjen Hasan Kasim I Purwosari Raya Lr. Simanampang No. 133 RT/RW. 49/10 Kel. Bukit Sangkal Kec. Kalidoni Palembang 30114', '07115615310', '07115615311');
 
 --
@@ -222,8 +222,8 @@ INSERT INTO security.sec_occupation (occupation_uuid, occupation_code, occupatio
 -- Dumping data for table sec_employee
 --
 	
-INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, last_education_degree) VALUES 
-('5e88d92b-32e3-42e2-973b-898287419f98', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', NULL, '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'S1'),
-('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'e24b76e6-dee2-4262-80a1-f00f554d0440', NULL, 'af94a020-709b-4fbf-adcb-ce0be48386d4', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'S1'),
-('cd678d0b-fe1c-4801-89b0-b6d5013ac285', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', NULL, '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMA'),
-('be1c57e6-2141-413e-85a5-2eec9bc0c4ba', 'b223fb75-bea0-4939-b04b-9aede45bf7cf', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', '1f92c9ed-8414-4683-8a1b-999e03b3f5bc', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMA');
+INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, id_employee, last_education_degree) VALUES 
+('5e88d92b-32e3-42e2-973b-898287419f98', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', NULL, '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '02', 'S1'),
+('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'e24b76e6-dee2-4262-80a1-f00f554d0440', NULL, 'af94a020-709b-4fbf-adcb-ce0be48386d4', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '01', 'S1'),
+('cd678d0b-fe1c-4801-89b0-b6d5013ac285', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', NULL, '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '0548022', 'SMA'),
+('be1c57e6-2141-413e-85a5-2eec9bc0c4ba', 'b223fb75-bea0-4939-b04b-9aede45bf7cf', 'cd678d0b-fe1c-4801-89b0-b6d5013ac285', '1f92c9ed-8414-4683-8a1b-999e03b3f5bc', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '16101548', 'SMA');

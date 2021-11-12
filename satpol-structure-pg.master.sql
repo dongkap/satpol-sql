@@ -1,6 +1,11 @@
+CREATE TABLE master.sec_corporate (
+	corporate_uuid varchar(36) NOT NULL,
+	corporate_code varchar(50) NOT NULL,
+	corporate_name varchar(255) NOT NULL,
+	PRIMARY KEY (corporate_uuid)
+);
 CREATE TABLE master.mst_business_partner (
 	bp_uuid varchar(36) NOT NULL,
-	bp_code varchar(50) NOT NULL,
 	bp_name varchar(255) NOT NULL,
 	email varchar(150),
 	address text,
@@ -18,9 +23,6 @@ CREATE TABLE master.mst_b2b (
 	b2b_uuid varchar(36) NOT NULL,
 	b2b_non_expired boolean DEFAULT true NOT NULL,
 	b2b_expired_time timestamp,
-	corporate_code varchar(50) NOT NULL,
-	corporate_name varchar(255) NOT NULL,
-	bp_name varchar(255) NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -28,11 +30,11 @@ CREATE TABLE master.mst_b2b (
 	modified_date timestamp,
 	modified_by varchar(25),
 	bp_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (b2b_uuid)
 );
 CREATE TABLE master.mst_asset (
 	asset_uuid varchar(36) NOT NULL,
-	asset_code varchar(50) NOT NULL,
 	asset_name varchar(255) NOT NULL,
 	asset_condition varchar(50) NOT NULL,
 	quantity int DEFAULT 1 NOT NULL,
@@ -159,7 +161,6 @@ CREATE TABLE master.mst_locale (
 	locale_uuid varchar(36) NOT NULL,
 	locale_code varchar(10) NOT NULL,
 	locale_identifier varchar(100) NOT NULL,
-	locale_sub_identifier varchar(100) NOT NULL,
 	locale_icon varchar(100) DEFAULT 'flag-icon flag-icon-us',
 	locale_default boolean DEFAULT false NOT NULL,
 	locale_enabled boolean DEFAULT true NOT NULL,
@@ -209,12 +210,15 @@ CREATE TABLE master.mst_parameter_i18n (
 	PRIMARY KEY (parameter_i18n_uuid)
 );
 
-ALTER TABLE master.mst_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
-ALTER TABLE master.mst_asset ADD CONSTRAINT asset_code UNIQUE (asset_code);
+ALTER TABLE master.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
 
 ALTER TABLE master.mst_b2b
 	ADD FOREIGN KEY (bp_uuid) 
 	REFERENCES master.mst_business_partner (bp_uuid);
+
+ALTER TABLE master.mst_b2b
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES master.sec_corporate (corporate_uuid);
 
 ALTER TABLE master.mst_asset
 	ADD FOREIGN KEY (bp_uuid) 

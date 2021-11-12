@@ -19,13 +19,11 @@ CREATE TABLE activity.sec_employee (
 );
 CREATE TABLE activity.mst_business_partner (
 	bp_uuid varchar(36) NOT NULL,
-	bp_code varchar(50) NOT NULL,
 	bp_name varchar(255) NOT NULL,
 	PRIMARY KEY (bp_uuid)
 );
 CREATE TABLE activity.mst_asset (
 	asset_uuid varchar(36) NOT NULL,
-	asset_code varchar(50) NOT NULL,
 	asset_name varchar(255) NOT NULL,
 	PRIMARY KEY (asset_uuid)
 );
@@ -185,8 +183,6 @@ CREATE TABLE activity.guest_book (
 
 ALTER TABLE activity.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
 ALTER TABLE activity.sec_employee ADD CONSTRAINT username UNIQUE (username);
-ALTER TABLE activity.mst_business_partner ADD CONSTRAINT bp_code UNIQUE (bp_code);
-ALTER TABLE activity.mst_asset ADD CONSTRAINT asset_code UNIQUE (asset_code);
 ALTER TABLE activity.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignment_number);
 

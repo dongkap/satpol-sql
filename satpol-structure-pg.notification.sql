@@ -41,7 +41,7 @@ CREATE TABLE "notification".push_settings (
 );
 ALTER TABLE "notification".push_notification ADD CONSTRAINT endpoint UNIQUE (endpoint);
 
-ALTER TABLE "notification".subs_settings
+ALTER TABLE "notification".push_settings
 	ADD FOREIGN KEY (subscription_uuid) 
 	REFERENCES "notification".subscription (subscription_uuid);
 
