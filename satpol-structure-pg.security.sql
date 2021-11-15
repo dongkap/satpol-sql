@@ -454,6 +454,8 @@ GRANT ALL ON TABLE security.sec_function TO dongkap;
 
 GRANT ALL ON TABLE security.sec_user TO dongkap;
 
+GRANT ALL ON TABLE security.sec_r_user_app TO dongkap;
+
 GRANT ALL ON TABLE security.sec_r_user_role TO dongkap;
 
 GRANT ALL ON TABLE security.sec_contact_user TO dongkap;
