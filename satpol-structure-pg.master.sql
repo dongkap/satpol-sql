@@ -39,9 +39,6 @@ CREATE TABLE master.mst_asset (
 	asset_condition varchar(50) NOT NULL,
 	quantity int DEFAULT 1 NOT NULL,
 	description text NULL,
-	corporate_code varchar(50) NOT NULL,
-	corporate_name varchar(255) NOT NULL,
-	bp_name varchar(255) NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -49,6 +46,7 @@ CREATE TABLE master.mst_asset (
 	modified_date timestamp,
 	modified_by varchar(25),
 	bp_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)
 );
 CREATE TABLE master.mst_country (
@@ -223,6 +221,10 @@ ALTER TABLE master.mst_b2b
 ALTER TABLE master.mst_asset
 	ADD FOREIGN KEY (bp_uuid) 
 	REFERENCES master.mst_business_partner (bp_uuid);
+
+ALTER TABLE master.mst_asset
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES master.sec_corporate (corporate_uuid);
 
 ALTER TABLE master.mst_city
 	ADD FOREIGN KEY (province_id) 
