@@ -25,6 +25,8 @@ CREATE TABLE activity.mst_business_partner (
 CREATE TABLE activity.mst_asset (
 	asset_uuid varchar(36) NOT NULL,
 	asset_name varchar(255) NOT NULL,
+	bp_uuid varchar(36) NOT NULL,
+	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)
 );
 CREATE TABLE activity.file_metadata (
@@ -144,7 +146,6 @@ CREATE TABLE activity.log_inventory (
 	asset_condition varchar(50) NOT NULL,
 	quantity int DEFAULT 1 NOT NULL,
 	description text NULL,
-	checked_date timestamp NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -189,6 +190,14 @@ ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignm
 ALTER TABLE activity.sec_employee
 	ADD FOREIGN KEY (occupation_uuid) 
 	REFERENCES activity.sec_occupation (occupation_uuid);
+
+ALTER TABLE activity.mst_asset
+	ADD FOREIGN KEY (bp_uuid) 
+	REFERENCES activity.mst_business_partner (bp_uuid);
+
+ALTER TABLE activity.mst_asset
+	ADD FOREIGN KEY (corporate_uuid) 
+	REFERENCES activity.sec_corporate (corporate_uuid);
 
 ALTER TABLE activity.assignment_group
 	ADD FOREIGN KEY (corporate_uuid) 
