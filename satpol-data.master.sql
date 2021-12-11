@@ -1,4 +1,11 @@
 --
+-- Dumping data for table sec_corporate
+--
+
+INSERT INTO master.sec_corporate(corporate_uuid, corporate_code, corporate_name) VALUES
+('0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', 'SMART', 'PT. SAHABAT MANDIRI KESATRIA (SMART)');
+
+--
 -- Dumping data for table mst_locale
 --
 

@@ -1,4 +1,59 @@
 --
+-- Dumping data for table mst_parameter
+--
+
+INSERT INTO security.mst_parameter (parameter_uuid, parameter_code) VALUES
+('eb8c8621-c79c-4f1b-bd77-757d5ed106e5', 'GENDER.MALE'),
+('f6dd4b90-6c06-4066-84a3-0599d1a06003', 'GENDER.FEMALE'),
+('b0781ecd-0a72-4bd6-af74-d96099201f13', 'MONTH.01'),
+('246540bb-7b9d-4936-b315-ca8fb7481117', 'MONTH.02'),
+('b3e6d09f-3381-409d-b06c-7250e44e0fb9', 'MONTH.03'),
+('622df19b-92ec-42a4-bbda-93cff6df28fb', 'MONTH.04'),
+('a1959e81-3b06-4b67-9dc4-8f84674a12dc', 'MONTH.05'),
+('c08f4646-1555-405b-94f4-43f0075a5140', 'MONTH.06'),
+('5fad1204-8611-48e4-b280-d3f5d89a85b9', 'MONTH.07'),
+('9d61f94e-a06b-41b0-b60f-d7a9eca59615', 'MONTH.08'),
+('dbe9ce40-47f4-4b81-8dd1-a157757dd737', 'MONTH.09'),
+('6fd8fe8e-f2bb-44a6-815e-a004074cd29a', 'MONTH.10'),
+('31778cf3-948c-4535-8ec0-9ba33c178f7b', 'MONTH.11'),
+('53809977-edab-4e7e-9b5c-5614fc968529', 'MONTH.12');
+
+--
+-- Dumping data for table mst_parameter_i18n
+--
+
+INSERT INTO security.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, locale_code, parameter_value) VALUES
+('1642d182-027c-4d5a-9ac4-4ca81ba8ab0b', 'eb8c8621-c79c-4f1b-bd77-757d5ed106e5', 'en-US', 'Male'),
+('c9bedf56-b338-4bce-83c7-145603a0a902', 'f6dd4b90-6c06-4066-84a3-0599d1a06003', 'en-US', 'Female'),
+('4e1cf97d-da2b-4502-a8fb-8b7c56685061', 'eb8c8621-c79c-4f1b-bd77-757d5ed106e5', 'id-ID', 'Pria'),
+('fc74760b-a4f3-48db-a3a8-3fe2e230d3bd', 'f6dd4b90-6c06-4066-84a3-0599d1a06003', 'id-ID', 'Wanita'),
+
+('d4d5f1b6-723c-46b9-80a4-816c5fd513da', 'b0781ecd-0a72-4bd6-af74-d96099201f13', 'en-US', 'January'),
+('a60265a7-f13e-4a7f-8629-12a777bcf699', '246540bb-7b9d-4936-b315-ca8fb7481117', 'en-US', 'February'),
+('b73c56bd-93a0-4aa7-9900-c60375fc08ea', 'b3e6d09f-3381-409d-b06c-7250e44e0fb9', 'en-US', 'March'),
+('f766bc87-cdb9-4d79-945a-1f577c6b68e6', '622df19b-92ec-42a4-bbda-93cff6df28fb', 'en-US', 'April'),
+('2f051a8c-cf25-4766-b403-0168b2a83369', 'a1959e81-3b06-4b67-9dc4-8f84674a12dc', 'en-US', 'May'),
+('9624e87a-a0d8-42fa-ab86-b9ac5601b4d4', 'c08f4646-1555-405b-94f4-43f0075a5140', 'en-US', 'June'),
+('da0466d3-87e8-44c9-a549-c787017bbd39', '5fad1204-8611-48e4-b280-d3f5d89a85b9', 'en-US', 'July'),
+('9e84608d-6c6c-466a-98f6-421297b59595', '9d61f94e-a06b-41b0-b60f-d7a9eca59615', 'en-US', 'August'),
+('ab2bcd9e-4561-4d28-8d55-b596577ca89e', 'dbe9ce40-47f4-4b81-8dd1-a157757dd737', 'en-US', 'September'),
+('6a6c8f5c-578a-4c96-a329-e8b4f045ac2e', '6fd8fe8e-f2bb-44a6-815e-a004074cd29a', 'en-US', 'October'),
+('eabd2122-a616-4815-877a-582a7f41e2c7', '31778cf3-948c-4535-8ec0-9ba33c178f7b', 'en-US', 'November'),
+('d99ec250-624a-4b8d-852e-3d0b31e46d17', '53809977-edab-4e7e-9b5c-5614fc968529', 'en-US', 'December'),
+('1a5d79ce-f008-4d25-b45e-ed658e2c261b', 'b0781ecd-0a72-4bd6-af74-d96099201f13', 'id-ID', 'Januari'),
+('e6a35a98-7e4b-4681-96c5-8a4a9e4783c5', '246540bb-7b9d-4936-b315-ca8fb7481117', 'id-ID', 'Februari'),
+('dee5a173-024b-43ab-8a0b-8a0e102a814c', 'b3e6d09f-3381-409d-b06c-7250e44e0fb9', 'id-ID', 'Maret'),
+('7c35b09f-bc46-4fcd-82b1-5964914fe64e', '622df19b-92ec-42a4-bbda-93cff6df28fb', 'id-ID', 'April'),
+('dade2363-d40b-4419-9b0d-b53680cbd94e', 'a1959e81-3b06-4b67-9dc4-8f84674a12dc', 'id-ID', 'Mei'),
+('10d4850c-404d-4316-9eb2-680a5bb145c9', 'c08f4646-1555-405b-94f4-43f0075a5140', 'id-ID', 'Juni'),
+('46a97c0d-3576-4cba-ad52-dca820551baf', '5fad1204-8611-48e4-b280-d3f5d89a85b9', 'id-ID', 'Juli'),
+('5dc3f9c3-b871-41e2-ac7f-427a9ecd2711', '9d61f94e-a06b-41b0-b60f-d7a9eca59615', 'id-ID', 'Agustus'),
+('adc48fbb-fbcc-4ea7-ad03-af8f9296c0ab', 'dbe9ce40-47f4-4b81-8dd1-a157757dd737', 'id-ID', 'September'),
+('e5e1eb57-c2d7-4b8f-84a0-f50e840540f1', '6fd8fe8e-f2bb-44a6-815e-a004074cd29a', 'id-ID', 'Oktober'),
+('fb0e6fb6-ffdd-4c9e-b5be-8c08f93dcb3f', '31778cf3-948c-4535-8ec0-9ba33c178f7b', 'id-ID', 'November'),
+('bcc6be77-905d-453c-97c3-fee4f5acaa55', '53809977-edab-4e7e-9b5c-5614fc968529', 'id-ID', 'Desember');
+
+--
 -- Dumping data for table oauth_client_details
 -- smart-core | secretdo01
 -- smart-mobile | secretdo02
@@ -35,8 +90,8 @@ INSERT INTO security.sec_sys_auth (sys_auth_uuid, sys_auth_code, sys_auth_name, 
 INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering_str, icon, is_leaf, is_home, is_group, "version", is_active, created_date, created_by, modified_date, modified_by, parent_uuid) VALUES
 ('b9029fd3-44cd-479c-965d-a8da1bfb20eb', '#DASHBOARD-PAGE', '/app/dashboard', 0, 0, '000', 'home-outline', false, true, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
 ('f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8', 'N/A', '#', 0, 1, '001', 'shield-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
-('4dc5f8f6-29e6-4cb1-a137-d4cdd3e2f634', '#MANAGEMENT-END-USER-PAGE', '/app/mgmt/user/end', 1, 0, '001.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
-('ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', '#MANAGEMENT-ADMIN-PAGE', '/app/mgmt/user/admin', 1, 1, '001.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
+('ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', '#MANAGEMENT-CORPORATE-PAGE', '/app/mgmt/corporate', 1, 0, '001.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
+('4dc5f8f6-29e6-4cb1-a137-d4cdd3e2f634', '#MANAGEMENT-END-USER-PAGE', '/app/mgmt/user/end', 1, 1, '001.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
 ('a695c3ec-71de-41d2-9623-fc96e55a6e35', '#MANAGEMENT-MENU-PAGE', '/app/mgmt/menu', 1, 2, '001.002', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
 ('079f7d96-8ef9-40d5-ab1a-0f6641e3e8cf', '#MANAGEMENT-ROLE-PAGE', '/app/mgmt/role', 1, 3, '001.003', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8'),
 ('3cf5bced-7def-426a-99f7-c8d44e1ce74c', 'N/A', '#', 0, 2, '002', 'settings-2-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
@@ -55,10 +110,10 @@ INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering
 INSERT INTO security.sec_menu_i18n (menu_i18n_uuid, menu_uuid, locale_code, title, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('2a44a77e-a7f0-4bec-a0a5-ae02a0a39ee9', 'b9029fd3-44cd-479c-965d-a8da1bfb20eb', 'en-US', 'Dashboard', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('de490bc6-c52e-4b9e-9157-e881b9203886', 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8', 'en-US', 'Permission Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
+('60b2a62c-3aff-44e2-8bbd-aa13d64003f5', 'ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', 'en-US', 'Corporate Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('c229f514-2e2b-46c1-9daf-978b34ff732c', '4dc5f8f6-29e6-4cb1-a137-d4cdd3e2f634', 'en-US', 'User Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
-('504d4dd4-e718-4e1a-b509-1fd3b270b698', '079f7d96-8ef9-40d5-ab1a-0f6641e3e8cf', 'en-US', 'Role Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
-('60b2a62c-3aff-44e2-8bbd-aa13d64003f5', 'ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', 'en-US', 'Admin Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('ced677ee-7d07-4bff-bc0b-8ec334177812', 'a695c3ec-71de-41d2-9623-fc96e55a6e35', 'en-US', 'Menu Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
+('504d4dd4-e718-4e1a-b509-1fd3b270b698', '079f7d96-8ef9-40d5-ab1a-0f6641e3e8cf', 'en-US', 'Role Management', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('14306a74-a7ba-42f9-8bfe-600e95ffa3b3', '3cf5bced-7def-426a-99f7-c8d44e1ce74c', 'en-US', 'System Configuration', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('1afe5dbe-3519-452f-8060-615541116f0d', '8c66c75e-5931-40af-af28-7c60b366ffd4', 'en-US', 'Parameter', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('fb616657-b89d-4540-89bf-9a87ebf7ac83', 'b81076bf-dda0-4278-b639-ba6f750eb8c9', 'en-US', 'i18n', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL);
@@ -71,8 +126,8 @@ INSERT INTO security.sec_menu_i18n (menu_i18n_uuid, menu_uuid, locale_code, titl
 INSERT INTO security.sec_menu_i18n (menu_i18n_uuid, menu_uuid, locale_code, title, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('8edd8eaa-c665-4d81-ab41-49a61df686ba', 'b9029fd3-44cd-479c-965d-a8da1bfb20eb', 'id-ID', 'Beranda', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('e4d513bf-bebf-4167-bd46-062277f1b7ae', 'f6c6570b-0a29-4f3a-baa5-6d273c0bc2a8', 'id-ID', 'Manajemen Hak Akses', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
+('afd5dc05-19a7-418b-959d-2ef84c01237d', 'ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', 'id-ID', 'Manajemen Perusahaan', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('d17d8cc6-78d0-4034-b1ec-48a9c9e1d1ae', '4dc5f8f6-29e6-4cb1-a137-d4cdd3e2f634', 'id-ID', 'Manajemen Pengguna', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
-('afd5dc05-19a7-418b-959d-2ef84c01237d', 'ab0c7ad2-5f53-4d42-9f49-e18a5d378c0f', 'id-ID', 'Manajemen Admin', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('8076994f-f22b-4d9f-b093-a8ca7e1a5d11', 'a695c3ec-71de-41d2-9623-fc96e55a6e35', 'id-ID', 'Manajemen Menu', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('dcb49994-1f47-4650-b869-8b318f93dde4', '079f7d96-8ef9-40d5-ab1a-0f6641e3e8cf', 'id-ID', 'Manajemen Peran', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),
 ('b104f88a-d41f-4941-8d67-3b1aa3ce6b17', '3cf5bced-7def-426a-99f7-c8d44e1ce74c', 'id-ID', 'Konfigurasi Sistem', 0, true, '2018-12-04 13:37:15', NULL, NULL, NULL),

@@ -1,3 +1,15 @@
+CREATE TABLE activity.mst_parameter (
+	parameter_uuid varchar(36) NOT NULL,
+	parameter_code varchar(50) NOT NULL,
+	PRIMARY KEY (parameter_uuid)
+);
+CREATE TABLE activity.mst_parameter_i18n (
+	parameter_i18n_uuid varchar(36) NOT NULL,
+	parameter_uuid varchar(36) NOT NULL,
+	locale_code varchar(10),
+	parameter_value text NOT NULL,
+	PRIMARY KEY (parameter_i18n_uuid)
+);
 CREATE TABLE activity.sec_corporate (
 	corporate_uuid varchar(36) NOT NULL,
 	corporate_code varchar(50) NOT NULL,
@@ -187,6 +199,10 @@ ALTER TABLE activity.sec_employee ADD CONSTRAINT username UNIQUE (username);
 ALTER TABLE activity.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
 ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignment_number);
 
+ALTER TABLE activity.mst_parameter_i18n
+	ADD FOREIGN KEY (parameter_uuid) 
+	REFERENCES activity.mst_parameter (parameter_uuid);
+
 ALTER TABLE activity.sec_employee
 	ADD FOREIGN KEY (occupation_uuid) 
 	REFERENCES activity.sec_occupation (occupation_uuid);
@@ -258,6 +274,10 @@ ALTER TABLE activity.guest_book
 ALTER TABLE activity.guest_book
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES activity.file_metadata (file_metadata_uuid);
+
+GRANT ALL ON TABLE activity.mst_parameter TO dongkap;
+
+GRANT ALL ON TABLE activity.mst_parameter_i18n TO dongkap;
 
 GRANT ALL ON TABLE activity.sec_corporate TO dongkap;
 
