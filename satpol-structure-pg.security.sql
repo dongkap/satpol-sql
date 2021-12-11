@@ -1,3 +1,15 @@
+CREATE TABLE security.mst_parameter (
+	parameter_uuid varchar(36) NOT NULL,
+	parameter_code varchar(50) NOT NULL,
+	PRIMARY KEY (parameter_uuid)
+);
+CREATE TABLE security.mst_parameter_i18n (
+	parameter_i18n_uuid varchar(36) NOT NULL,
+	parameter_uuid varchar(36) NOT NULL,
+	locale_code varchar(10),
+	parameter_value text NOT NULL,
+	PRIMARY KEY (parameter_i18n_uuid)
+);
 CREATE TABLE security.oauth_access_token (
 	token_id varchar(255),
 	"token" bytea,
@@ -346,6 +358,10 @@ ALTER TABLE security.sec_user ADD CONSTRAINT email UNIQUE (email);
 ALTER TABLE security.sec_personal_info ADD CONSTRAINT id_number UNIQUE (id_number);
 ALTER TABLE security.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
 
+ALTER TABLE security.mst_parameter_i18n
+	ADD FOREIGN KEY (parameter_uuid) 
+	REFERENCES security.mst_parameter (parameter_uuid);
+
 ALTER TABLE security.sec_menu
 	ADD FOREIGN KEY (parent_uuid) 
 	REFERENCES security.sec_menu (menu_uuid);
@@ -425,6 +441,10 @@ ALTER TABLE security.sec_certification
 ALTER TABLE security.sec_certification
 	ADD FOREIGN KEY (file_metadata_uuid) 
 	REFERENCES security.file_metadata (file_metadata_uuid);
+
+GRANT ALL ON TABLE security.mst_parameter TO dongkap;
+
+GRANT ALL ON TABLE security.mst_parameter_i18n TO dongkap;
 
 GRANT ALL ON TABLE security.oauth_access_token TO dongkap;
 
