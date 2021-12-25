@@ -426,6 +426,10 @@ ALTER TABLE security.sec_employee
 	ADD FOREIGN KEY (user_uuid) 
 	REFERENCES security.sec_user (user_uuid);
 
+ALTER TABLE security.sec_employee
+	ADD FOREIGN KEY (occupation_uuid) 
+	REFERENCES security.sec_occupation (occupation_uuid);
+
 ALTER TABLE security.sec_education
 	ADD FOREIGN KEY (employee_uuid) 
 	REFERENCES security.sec_employee (employee_uuid);
