@@ -98,7 +98,7 @@ INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering
 ('3cf5bced-7def-426a-99f7-c8d44e1ce74c', 'N/A', '#', 0, 2, '002', 'settings-2-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
 ('8c66c75e-5931-40af-af28-7c60b366ffd4', '#SYSCONF-PARAMETER-PAGE', '/app/sysconf/parameter', 1, 0, '002.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '3cf5bced-7def-426a-99f7-c8d44e1ce74c'),
 ('b81076bf-dda0-4278-b639-ba6f750eb8c9', '#SYSCONF-I18N-PAGE', '/app/sysconf/i18n', 1, 1, '002.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '3cf5bced-7def-426a-99f7-c8d44e1ce74c'),
-('6464e4ef-cbc8-45fa-9492-6df7c9c2030f', 'N/A', '#', 0, 3, '003', 'book-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
+('6464e4ef-cbc8-45fa-9492-6df7c9c2030f', 'N/A', '#', 0, 3, '003', 'people-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
 ('f5bd9894-570f-4305-ace2-ab8cf30dce86', '#MANAGEMENT-EMPLOYEE-PAGE', '/app/mgmt/employee', 1, 0, '003.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
 ('a1e515d4-4bd8-4a2f-afc0-ae6bdd948dd7', '#MANAGEMENT-OCCUPATION-PAGE', '/app/mgmt/occupation', 1, 1, '003.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
 ('c01a10f7-f6e2-4223-bf06-98953a67ac71', '#MANAGEMENT-INVENTORY-PAGE', '/app/mgmt/inventory', 1, 2, '003.002', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
@@ -108,7 +108,7 @@ INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering
 ('b1ec693c-a466-4e0d-8c4a-b22c2c08ea23', '#ACTIVITY-GUEST-BOOK-PAGE', '/app/activity/guest-book', 1, 0, '005.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '5fe1b483-25cc-48c3-baf2-3d394c277f54'),
 ('2c5b4ee5-ce1d-48c5-9e28-cf4cfe111f1e', 'N/A', '#', 0, 6, '006', 'checkmark-square-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
 ('adc5a98b-6c45-4378-9f45-0ed021b42d0b', '#APPROVAL-TIMESHEET-PAGE', '/app/approval/timesheet', 1, 0, '006.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '2c5b4ee5-ce1d-48c5-9e28-cf4cfe111f1e'),
-('7905a575-7caf-4c37-85f2-bdf4d773518a', 'N/A', '#', 0, 7, '007', 'checkmark-square-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
+('7905a575-7caf-4c37-85f2-bdf4d773518a', 'N/A', '#', 0, 7, '007', 'file-text-outline', false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, NULL),
 ('fa024a1d-5cfd-4456-8436-3ad2087a96f0', '#REPORT-MUTATION-PAGE', '/app/report/mutation', 1, 0, '007.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '7905a575-7caf-4c37-85f2-bdf4d773518a'),
 ('64fb81a5-5e98-473e-bf2a-cbe25435298a', '#REPORT-GUEST-BOOK-PAGE', '/app/report/guest-book', 1, 1, '007.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', NULL, NULL, NULL, '7905a575-7caf-4c37-85f2-bdf4d773518a');
 --- Extra Menu
