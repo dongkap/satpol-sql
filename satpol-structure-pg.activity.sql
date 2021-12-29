@@ -37,7 +37,7 @@ CREATE TABLE activity.mst_business_partner (
 CREATE TABLE activity.mst_asset (
 	asset_uuid varchar(36) NOT NULL,
 	asset_name varchar(255) NOT NULL,
-	bp_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)
 );
@@ -98,6 +98,7 @@ CREATE TABLE activity.timesheet (
 	shift varchar(50) NOT NULL,
 	checkin_time timestamp,
 	checkout_time timestamp,
+	total_hours int DEFAULT 0 NOT NULL,
 	auto_approved boolean DEFAULT true NOT NULL,
 	is_approved boolean DEFAULT true NOT NULL,
 	approved_date timestamp,

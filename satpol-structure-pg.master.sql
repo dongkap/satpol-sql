@@ -45,7 +45,7 @@ CREATE TABLE master.mst_asset (
 	created_by varchar(25),
 	modified_date timestamp,
 	modified_by varchar(25),
-	bp_uuid varchar(36) NOT NULL,
+	bp_uuid varchar(36) NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)
 );
