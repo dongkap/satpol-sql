@@ -14,6 +14,7 @@ CREATE TABLE activity.sec_corporate (
 	corporate_uuid varchar(36) NOT NULL,
 	corporate_code varchar(50) NOT NULL,
 	corporate_name varchar(255) NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
 	PRIMARY KEY (corporate_uuid)
 );
 CREATE TABLE activity.sec_occupation (
@@ -26,17 +27,20 @@ CREATE TABLE activity.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
 	username varchar(50) NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (employee_uuid)
 );
 CREATE TABLE activity.mst_business_partner (
 	bp_uuid varchar(36) NOT NULL,
 	bp_name varchar(255) NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
 	PRIMARY KEY (bp_uuid)
 );
 CREATE TABLE activity.mst_asset (
 	asset_uuid varchar(36) NOT NULL,
 	asset_name varchar(255) NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
 	bp_uuid varchar(36) NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)

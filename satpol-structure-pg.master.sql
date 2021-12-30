@@ -2,6 +2,7 @@ CREATE TABLE master.sec_corporate (
 	corporate_uuid varchar(36) NOT NULL,
 	corporate_code varchar(50) NOT NULL,
 	corporate_name varchar(255) NOT NULL,
+	is_active boolean DEFAULT true NOT NULL,
 	PRIMARY KEY (corporate_uuid)
 );
 CREATE TABLE master.mst_business_partner (
