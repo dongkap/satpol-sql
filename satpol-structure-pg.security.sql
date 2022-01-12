@@ -230,6 +230,7 @@ CREATE TABLE security.sec_personal_info (
 	date_of_birth date NOT NULL,
 	height numeric(5,2),
 	weight numeric(5,2),
+	blood_type varchar(3),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,

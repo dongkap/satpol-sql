@@ -14,7 +14,8 @@ INSERT INTO master.mst_parameter_group (parameter_group_uuid, parameter_group_co
 ('a34ce03b-35e5-40d7-9e95-47cb77cf623a', 'GENDER', 'Gender', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('383bdf2d-04f3-43f2-888f-b8acb475600f', 'MONTH', 'Month', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('fe30e61d-f702-41f6-8323-449719cd2553', 'STATUS_GENERAL', 'Status of General', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
-('be9c7628-fa51-4f53-a920-2f6493e3358c', 'ASSET_CONDITION', 'Asset Condition', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
+('be9c7628-fa51-4f53-a920-2f6493e3358c', 'ASSET_CONDITION', 'Asset Condition', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
+('abc86294-f7fb-4c5a-9643-fdc166a40337', 'EDUCATION_DEGREE', 'Education Degree', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
 
 --
 -- Dumping data for table mst_parameter
@@ -42,7 +43,17 @@ INSERT INTO master.mst_parameter (parameter_uuid, parameter_code, "version", is_
 ('22cf3dab-a318-45d5-92dc-0ed73f4331bd', 'STATUS_GENERAL.REJECTED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'fe30e61d-f702-41f6-8323-449719cd2553'),
 ('a5b3fe77-0fec-4219-b2e7-e094ac9f6dcc', 'ASSET_CONDITION.GOOD', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
 ('02e4c645-e91c-4c79-9ed2-621073b21f61', 'ASSET_CONDITION.DAMAGED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
-('99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'ASSET_CONDITION.LOST', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c');
+('99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'ASSET_CONDITION.LOST', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
+('639a640e-6110-47e0-81ce-4f01ef4607bb', 'EDUCATION_DEGREE.NO_EDUCATION', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('1b499857-e17e-4913-b509-bf92d9c562b1', 'EDUCATION_DEGREE.SD', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('b89ee385-1694-4159-9b16-8d981d6e905e', 'EDUCATION_DEGREE.SMP', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'EDUCATION_DEGREE.SMA', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'EDUCATION_DEGREE.SMK', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('5692f46b-22ad-48c1-90d1-01ff853352ca', 'EDUCATION_DEGREE.D3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATION_DEGREE.D4', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATION_DEGREE.S1', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATION_DEGREE.S2', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATION_DEGREE.S3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337');
 
 --
 -- Dumping data for table mst_parameter_i18n
@@ -73,7 +84,18 @@ INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, loca
 
 ('2130e058-988c-4d37-8e66-0d61f6ccbdce', 'a5b3fe77-0fec-4219-b2e7-e094ac9f6dcc', 'en-US', 'Good', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('260aa3e5-0fa5-40b5-bbbe-34213908a984', '02e4c645-e91c-4c79-9ed2-621073b21f61', 'en-US', 'Damaged', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
-('4b27ff64-b9fe-4484-8d35-82a95395ac73', '99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'en-US', 'Lost', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
+('4b27ff64-b9fe-4484-8d35-82a95395ac73', '99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'en-US', 'Lost', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+
+('df7cb35c-e2a4-4e51-8642-1c1074fea9be', '639a640e-6110-47e0-81ce-4f01ef4607bb', 'en-US', 'No School', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('f1c84b4c-d86f-4b30-a06f-1aa83ebc6014', '1b499857-e17e-4913-b509-bf92d9c562b1', 'en-US', 'SD', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('aa217c50-b685-4dfb-b43d-7c98d3bb1552', 'b89ee385-1694-4159-9b16-8d981d6e905e', 'en-US', 'SMP', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('cb7dd2b5-6ab8-4379-ba5f-676f7459d527', '66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'en-US', 'SMA', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('56b1769f-3706-412e-ad1a-0fbea2f728a1', '2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'en-US', 'SMK', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('b0c41b7b-a0f7-4898-89a7-7de90dcdb4b4', '5692f46b-22ad-48c1-90d1-01ff853352ca', 'en-US', 'D3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('52e76d45-1300-4816-9045-026cee798554', '3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'en-US', 'D4', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('57779576-85d8-43c2-ae77-1d73337008ea', 'c5c2b9df-75b9-4375-9033-cae351c916c9', 'en-US', 'S1', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('12c91896-df9a-4416-8325-2155a0bb04c5', 'f9a23f17-58cf-459f-b07f-4192fe096103', 'en-US', 'S2', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('fcad3e62-c5ab-4bbf-b3df-518c249f2220', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'en-US', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
 
 INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, locale_code, parameter_value, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('4e1cf97d-da2b-4502-a8fb-8b7c56685061', 'eb8c8621-c79c-4f1b-bd77-757d5ed106e5', 'id-ID', 'Pria', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
@@ -100,4 +122,15 @@ INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, loca
 
 ('d9f907e8-5ad4-4bb7-a848-c890394fa714', 'a5b3fe77-0fec-4219-b2e7-e094ac9f6dcc', 'id-ID', 'Baik', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('1dad2b8f-dbbd-4ba5-a238-09ba95a0a259', '02e4c645-e91c-4c79-9ed2-621073b21f61', 'id-ID', 'Rusak', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
-('ce1bf63f-373f-4f3c-b490-b2c13237eee0', '99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'id-ID', 'Hilang', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
+('ce1bf63f-373f-4f3c-b490-b2c13237eee0', '99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'id-ID', 'Hilang', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+
+('4d812e31-81ce-4125-870a-658f000420a2', '639a640e-6110-47e0-81ce-4f01ef4607bb', 'id-ID', 'Tidak Sekolah', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('51c506c3-0387-4258-9fc0-7b6aba07f675', '1b499857-e17e-4913-b509-bf92d9c562b1', 'id-ID', 'SD', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('0b707454-cc5e-47a4-bd45-8fe0e67ba1c5', 'b89ee385-1694-4159-9b16-8d981d6e905e', 'id-ID', 'SMP', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('86fd6de2-c411-442b-ba27-66f3c0eae0ad', '66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'id-ID', 'SMA', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('b2b39109-e3f7-41d9-96a4-3ee4abfdf5f9', '2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'id-ID', 'SMK', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('bf783904-7001-4b09-8f2e-51dff4e3667a', '5692f46b-22ad-48c1-90d1-01ff853352ca', 'id-ID', 'D3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('7dd78230-280c-424a-97f0-b7fc893e83c3', '3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'id-ID', 'D4', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('358aa7fb-c459-4968-b481-018aa94cc358', 'c5c2b9df-75b9-4375-9033-cae351c916c9', 'id-ID', 'S1', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('c81a2eca-32de-4b08-91c6-c0aa174e7daa', 'f9a23f17-58cf-459f-b07f-4192fe096103', 'id-ID', 'S2', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('af13eab1-8b62-4d8c-958d-40c98a0db2f4', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'id-ID', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
