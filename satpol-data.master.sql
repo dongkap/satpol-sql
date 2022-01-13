@@ -15,7 +15,7 @@ INSERT INTO master.mst_parameter_group (parameter_group_uuid, parameter_group_co
 ('383bdf2d-04f3-43f2-888f-b8acb475600f', 'MONTH', 'Month', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('fe30e61d-f702-41f6-8323-449719cd2553', 'STATUS_GENERAL', 'Status of General', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('be9c7628-fa51-4f53-a920-2f6493e3358c', 'ASSET_CONDITION', 'Asset Condition', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
-('abc86294-f7fb-4c5a-9643-fdc166a40337', 'EDUCATION_DEGREE', 'Education Degree', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
+('abc86294-f7fb-4c5a-9643-fdc166a40337', 'EDUCATIONAL_LEVEL', 'Educational Level', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
 
 --
 -- Dumping data for table mst_parameter
@@ -44,16 +44,16 @@ INSERT INTO master.mst_parameter (parameter_uuid, parameter_code, "version", is_
 ('a5b3fe77-0fec-4219-b2e7-e094ac9f6dcc', 'ASSET_CONDITION.GOOD', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
 ('02e4c645-e91c-4c79-9ed2-621073b21f61', 'ASSET_CONDITION.DAMAGED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
 ('99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'ASSET_CONDITION.LOST', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'be9c7628-fa51-4f53-a920-2f6493e3358c'),
-('639a640e-6110-47e0-81ce-4f01ef4607bb', 'EDUCATION_DEGREE.NO_EDUCATION', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('1b499857-e17e-4913-b509-bf92d9c562b1', 'EDUCATION_DEGREE.SD', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('b89ee385-1694-4159-9b16-8d981d6e905e', 'EDUCATION_DEGREE.SMP', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'EDUCATION_DEGREE.SMA', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'EDUCATION_DEGREE.SMK', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('5692f46b-22ad-48c1-90d1-01ff853352ca', 'EDUCATION_DEGREE.D3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATION_DEGREE.D4', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATION_DEGREE.S1', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATION_DEGREE.S2', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATION_DEGREE.S3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337');
+('639a640e-6110-47e0-81ce-4f01ef4607bb', 'EDUCATIONAL_LEVEL.NO_EDUCATION', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('1b499857-e17e-4913-b509-bf92d9c562b1', 'EDUCATIONAL_LEVEL.SD', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('b89ee385-1694-4159-9b16-8d981d6e905e', 'EDUCATIONAL_LEVEL.SMP', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'EDUCATIONAL_LEVEL.SMA', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'EDUCATIONAL_LEVEL.SMK', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('5692f46b-22ad-48c1-90d1-01ff853352ca', 'EDUCATIONAL_LEVEL.D3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATIONAL_LEVEL.D4', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATIONAL_LEVEL.S1', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATIONAL_LEVEL.S2', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337');
 
 --
 -- Dumping data for table mst_parameter_i18n

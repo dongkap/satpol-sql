@@ -25,16 +25,16 @@ INSERT INTO security.mst_parameter (parameter_uuid, parameter_code) VALUES
 ('a5b3fe77-0fec-4219-b2e7-e094ac9f6dcc', 'ASSET_CONDITION.GOOD'),
 ('02e4c645-e91c-4c79-9ed2-621073b21f61', 'ASSET_CONDITION.DAMAGED'),
 ('99d639ff-2ede-4cd3-ad34-e74f5dfe52c8', 'ASSET_CONDITION.LOST'),
-('639a640e-6110-47e0-81ce-4f01ef4607bb', 'EDUCATION_DEGREE.NO_EDUCATION'),
-('1b499857-e17e-4913-b509-bf92d9c562b1', 'EDUCATION_DEGREE.SD'),
-('b89ee385-1694-4159-9b16-8d981d6e905e', 'EDUCATION_DEGREE.SMP'),
-('66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'EDUCATION_DEGREE.SMA'),
-('2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'EDUCATION_DEGREE.SMK'),
-('5692f46b-22ad-48c1-90d1-01ff853352ca', 'EDUCATION_DEGREE.D3'),
-('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATION_DEGREE.D4'),
-('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATION_DEGREE.S1'),
-('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATION_DEGREE.S2'),
-('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATION_DEGREE.S3');
+('639a640e-6110-47e0-81ce-4f01ef4607bb', 'EDUCATIONAL_LEVEL.NO_EDUCATION'),
+('1b499857-e17e-4913-b509-bf92d9c562b1', 'EDUCATIONAL_LEVEL.SD'),
+('b89ee385-1694-4159-9b16-8d981d6e905e', 'EDUCATIONAL_LEVEL.SMP'),
+('66aca5f0-1af7-4cef-83c6-dbee8ccf5485', 'EDUCATIONAL_LEVEL.SMA'),
+('2581b3d6-a0b0-48e7-b9ac-c0c7806ca943', 'EDUCATIONAL_LEVEL.SMK'),
+('5692f46b-22ad-48c1-90d1-01ff853352ca', 'EDUCATIONAL_LEVEL.D3'),
+('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATIONAL_LEVEL.D4'),
+('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATIONAL_LEVEL.S1'),
+('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATIONAL_LEVEL.S2'),
+('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3');
 
 --
 -- Dumping data for table mst_parameter_i18n
@@ -421,7 +421,7 @@ INSERT INTO security.sec_occupation (occupation_uuid, occupation_code, occupatio
 -- Dumping data for table sec_employee
 --
 	
-INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, id_employee, last_education_degree) VALUES 
+INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, id_employee, last_EDUCATIONAL_LEVEL) VALUES 
 ('5e88d92b-32e3-42e2-973b-898287419f98', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', NULL, '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '02', 'S1'),
 ('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'e24b76e6-dee2-4262-80a1-f00f554d0440', NULL, 'af94a020-709b-4fbf-adcb-ce0be48386d4', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '01', 'S1'),
 ('cd678d0b-fe1c-4801-89b0-b6d5013ac285', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', NULL, '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '0548022', 'SMA'),

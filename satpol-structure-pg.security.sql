@@ -289,7 +289,7 @@ CREATE TABLE security.sec_occupation (
 CREATE TABLE security.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
-	last_education_degree varchar(50),
+	last_educational_level varchar(50),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -304,7 +304,8 @@ CREATE TABLE security.sec_employee (
 );
 CREATE TABLE security.sec_education (
 	education_uuid varchar(36) NOT NULL,
-	school_name varchar(100) NOT NULL,
+	educational_level varchar(50) NOT NULL,
+	school_name varchar(100),
 	degree varchar(50),
 	study varchar(100),
 	grade varchar(10),
@@ -321,7 +322,6 @@ CREATE TABLE security.sec_education (
 );
 CREATE TABLE security.sec_training (
 	training_uuid varchar(36) NOT NULL,
-	training_code varchar(50) NOT NULL,
 	training_name varchar(100) NOT NULL,
 	training_start_date timestamp,
 	training_end_date timestamp,
