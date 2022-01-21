@@ -142,6 +142,7 @@ CREATE TABLE security.sec_sys_auth (
 CREATE TABLE security.sec_role (
 	role_uuid varchar(36) NOT NULL,
 	role_name varchar(50) NOT NULL,
+	role_level int DEFAULT 0 NOT NULL,
 	description text,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
@@ -181,6 +182,7 @@ CREATE TABLE security.sec_user (
 	raw text,
 	image varchar(250),
 	authority_default varchar(100),
+	"app_code" varchar(50) DEFAULT 'DONGKAP',
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
