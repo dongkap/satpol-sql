@@ -27,6 +27,7 @@ CREATE TABLE activity.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
 	username varchar(50) NOT NULL,
+	fullname varchar(75) NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (employee_uuid)
