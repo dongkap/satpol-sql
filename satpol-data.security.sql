@@ -34,7 +34,10 @@ INSERT INTO security.mst_parameter (parameter_uuid, parameter_code) VALUES
 ('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATIONAL_LEVEL.D4'),
 ('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATIONAL_LEVEL.S1'),
 ('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATIONAL_LEVEL.S2'),
-('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3');
+('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3'),
+('7965cc35-8107-424e-bda0-4167f962f664', 'PERMISSION.DISABLED'),
+('47be9646-2fd4-4a2e-8077-5b709d70525e', 'PERMISSION.LOCKED'),
+('f0d77822-fa18-458c-aedd-e831aeb857a9', 'PERMISSION.ACCOUNT_EXPIRED');
 
 --
 -- Dumping data for table mst_parameter_i18n
@@ -108,7 +111,14 @@ INSERT INTO security.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, lo
 ('7dd78230-280c-424a-97f0-b7fc893e83c3', '3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'id-ID', 'D4'),
 ('358aa7fb-c459-4968-b481-018aa94cc358', 'c5c2b9df-75b9-4375-9033-cae351c916c9', 'id-ID', 'S1'),
 ('c81a2eca-32de-4b08-91c6-c0aa174e7daa', 'f9a23f17-58cf-459f-b07f-4192fe096103', 'id-ID', 'S2'),
-('af13eab1-8b62-4d8c-958d-40c98a0db2f4', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'id-ID', 'S3');
+('af13eab1-8b62-4d8c-958d-40c98a0db2f4', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'id-ID', 'S3'),
+
+('4953b811-e123-41f6-b0c4-03777fac707f', '7965cc35-8107-424e-bda0-4167f962f664', 'en-US', 'Disabled'),
+('4afe2f43-a524-4420-b164-50e65115d3f8', '47be9646-2fd4-4a2e-8077-5b709d70525e', 'en-US', 'Locked'),
+('3f97d848-c85f-451e-8dc0-5266c0467d20', 'f0d77822-fa18-458c-aedd-e831aeb857a9', 'en-US', 'Account Expired'),
+('455bd328-b50d-41e5-922f-2e2730732bb2', '7965cc35-8107-424e-bda0-4167f962f664', 'id-ID', 'Nonaktif'),
+('afd967f4-88e9-4794-b2c6-23c9198575de', '47be9646-2fd4-4a2e-8077-5b709d70525e', 'id-ID', 'Terkunci'),
+('b63902e3-c6ad-406e-90f1-6911edcb65a8', 'f0d77822-fa18-458c-aedd-e831aeb857a9', 'id-ID', 'Akun Kedaluwarsa');
 
 --
 -- Dumping data for table oauth_client_details

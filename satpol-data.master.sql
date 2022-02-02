@@ -15,7 +15,8 @@ INSERT INTO master.mst_parameter_group (parameter_group_uuid, parameter_group_co
 ('383bdf2d-04f3-43f2-888f-b8acb475600f', 'MONTH', 'Month', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('fe30e61d-f702-41f6-8323-449719cd2553', 'STATUS_GENERAL', 'Status of General', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
 ('be9c7628-fa51-4f53-a920-2f6493e3358c', 'ASSET_CONDITION', 'Asset Condition', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
-('abc86294-f7fb-4c5a-9643-fdc166a40337', 'EDUCATIONAL_LEVEL', 'Educational Level', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
+('abc86294-f7fb-4c5a-9643-fdc166a40337', 'EDUCATIONAL_LEVEL', 'Educational Level', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL),
+('6c9d0a84-1052-4320-bd96-1498ae51c17d', 'PERMISSION', 'Permission', 0, true, '2018-12-05 11:45:42', 'system', NULL, NULL);
 
 --
 -- Dumping data for table mst_parameter
@@ -53,7 +54,10 @@ INSERT INTO master.mst_parameter (parameter_uuid, parameter_code, "version", is_
 ('3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'EDUCATIONAL_LEVEL.D4', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
 ('c5c2b9df-75b9-4375-9033-cae351c916c9', 'EDUCATIONAL_LEVEL.S1', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
 ('f9a23f17-58cf-459f-b07f-4192fe096103', 'EDUCATIONAL_LEVEL.S2', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
-('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337');
+('fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'EDUCATIONAL_LEVEL.S3', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, 'abc86294-f7fb-4c5a-9643-fdc166a40337'),
+('7965cc35-8107-424e-bda0-4167f962f664', 'PERMISSION.DISABLED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, '6c9d0a84-1052-4320-bd96-1498ae51c17d'),
+('47be9646-2fd4-4a2e-8077-5b709d70525e', 'PERMISSION.LOCKED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, '6c9d0a84-1052-4320-bd96-1498ae51c17d'),
+('f0d77822-fa18-458c-aedd-e831aeb857a9', 'PERMISSION.ACCOUNT_EXPIRED', 0, true, '2018-12-05 11:46:40', 'system', NULL, NULL, '6c9d0a84-1052-4320-bd96-1498ae51c17d');
 
 --
 -- Dumping data for table mst_parameter_i18n
@@ -95,7 +99,11 @@ INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, loca
 ('52e76d45-1300-4816-9045-026cee798554', '3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'en-US', 'D4', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('57779576-85d8-43c2-ae77-1d73337008ea', 'c5c2b9df-75b9-4375-9033-cae351c916c9', 'en-US', 'S1', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('12c91896-df9a-4416-8325-2155a0bb04c5', 'f9a23f17-58cf-459f-b07f-4192fe096103', 'en-US', 'S2', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
-('fcad3e62-c5ab-4bbf-b3df-518c249f2220', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'en-US', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
+('fcad3e62-c5ab-4bbf-b3df-518c249f2220', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'en-US', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+
+('4953b811-e123-41f6-b0c4-03777fac707f', '7965cc35-8107-424e-bda0-4167f962f664', 'en-US', 'Disabled', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('4afe2f43-a524-4420-b164-50e65115d3f8', '47be9646-2fd4-4a2e-8077-5b709d70525e', 'en-US', 'Locked', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('3f97d848-c85f-451e-8dc0-5266c0467d20', 'f0d77822-fa18-458c-aedd-e831aeb857a9', 'en-US', 'Account Expired', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
 
 INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, locale_code, parameter_value, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('4e1cf97d-da2b-4502-a8fb-8b7c56685061', 'eb8c8621-c79c-4f1b-bd77-757d5ed106e5', 'id-ID', 'Pria', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
@@ -133,4 +141,8 @@ INSERT INTO master.mst_parameter_i18n (parameter_i18n_uuid, parameter_uuid, loca
 ('7dd78230-280c-424a-97f0-b7fc893e83c3', '3ff1efa8-52f9-4a74-8c6c-094061e642a5', 'id-ID', 'D4', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('358aa7fb-c459-4968-b481-018aa94cc358', 'c5c2b9df-75b9-4375-9033-cae351c916c9', 'id-ID', 'S1', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
 ('c81a2eca-32de-4b08-91c6-c0aa174e7daa', 'f9a23f17-58cf-459f-b07f-4192fe096103', 'id-ID', 'S2', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
-('af13eab1-8b62-4d8c-958d-40c98a0db2f4', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'id-ID', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
+('af13eab1-8b62-4d8c-958d-40c98a0db2f4', 'fe1dcc89-4260-4ee7-8d4c-927ebd612f87', 'id-ID', 'S3', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+
+('455bd328-b50d-41e5-922f-2e2730732bb2', '7965cc35-8107-424e-bda0-4167f962f664', 'id-ID', 'Nonaktif', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('afd967f4-88e9-4794-b2c6-23c9198575de', '47be9646-2fd4-4a2e-8077-5b709d70525e', 'id-ID', 'Terkunci', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL),
+('b63902e3-c6ad-406e-90f1-6911edcb65a8', 'f0d77822-fa18-458c-aedd-e831aeb857a9', 'id-ID', 'Akun Kedaluwarsa', 0, true, '2018-12-05 11:48:40', 'system', NULL, NULL);
