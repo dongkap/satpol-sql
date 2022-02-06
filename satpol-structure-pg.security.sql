@@ -326,6 +326,7 @@ CREATE TABLE security.sec_education (
 );
 CREATE TABLE security.sec_training (
 	training_uuid varchar(36) NOT NULL,
+	training_code varchar(100) NOT NULL,
 	training_name varchar(100) NOT NULL,
 	training_start_date timestamp,
 	training_end_date timestamp,

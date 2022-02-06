@@ -348,7 +348,7 @@ INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, v
 -- guardmember.smart@mailinator.com | user123
 --
 
-INSERT INTO security.sec_user (user_uuid, username, password, fullname, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
+INSERT INTO security.sec_user (user_uuid, username, password, fullname, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "app_code", "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'ridla.fadilah@gmail.com', '$2a$13$iJoBglX2Rx/AkTc30eCDx.rHUfVyI3nkd3rCpyiCHXdnmqZmKm1Hm', 'Administrator', true, true, true, true, 'ridla.fadilah@gmail.com', NULL, NULL, 'ROLE_ADMINISTRATOR', 'DONGKAP', 0, true, '2018-12-02 20:50:29', 'system', NULL, NULL),
 ('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'satpamsmart@yahoo.co.id', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Abdul Ronie', true, true, true, true, 'satpamsmart@yahoo.co.id', NULL, NULL, 'ROLE_STAFF_ADMIN', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
 ('e24b76e6-dee2-4262-80a1-f00f554d0440', 'manager.smart@mailinator.com', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Ahmad Rajab Anugerah ', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
