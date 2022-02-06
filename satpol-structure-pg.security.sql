@@ -179,6 +179,8 @@ CREATE TABLE security.sec_user (
 	provider varchar(100) DEFAULT 'local' NOT NULL,
 	verification_code varchar(100),
 	verification_expired timestamp,
+	activate_code varchar(100),
+	activate_expired timestamp,
 	raw text,
 	image varchar(250),
 	authority_default varchar(100),
