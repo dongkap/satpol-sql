@@ -35,6 +35,7 @@ CREATE TABLE activity.sec_employee (
 CREATE TABLE activity.mst_business_partner (
 	bp_uuid varchar(36) NOT NULL,
 	bp_name varchar(255) NOT NULL,
+	corporate_code varchar(50) NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	PRIMARY KEY (bp_uuid)
 );
@@ -81,7 +82,6 @@ CREATE TABLE activity.assignment_group (
 );
 CREATE TABLE activity.assignment (
 	assignment_uuid varchar(36) NOT NULL,
-	assignment_number varchar(50) NOT NULL,
 	assignment_start_date timestamp,
 	assignment_end_date timestamp,
 	auto_approved boolean DEFAULT true NOT NULL,
