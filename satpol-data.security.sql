@@ -355,7 +355,7 @@ INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, v
 INSERT INTO security.sec_user (user_uuid, username, password, fullname, account_enabled, account_non_expired, account_non_locked, credentials_non_expired, email, verification_code, raw, authority_default, "app_code", "version", is_active, created_date, created_by, modified_date, modified_by) VALUES
 ('1ac29215-75e8-4e19-b4f1-e076da7ca1ab', 'ridla.fadilah@gmail.com', '$2a$13$iJoBglX2Rx/AkTc30eCDx.rHUfVyI3nkd3rCpyiCHXdnmqZmKm1Hm', 'Administrator', true, true, true, true, 'ridla.fadilah@gmail.com', NULL, NULL, 'ROLE_ADMINISTRATOR', 'DONGKAP', 0, true, '2018-12-02 20:50:29', 'system', NULL, NULL),
 ('38527ac6-edb6-4a4f-8e60-eede49c4c2a6', 'satpamsmart@yahoo.co.id', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Abdul Ronie', true, true, true, true, 'satpamsmart@yahoo.co.id', NULL, NULL, 'ROLE_STAFF_ADMIN', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
-('e24b76e6-dee2-4262-80a1-f00f554d0440', 'manager.smart@mailinator.com', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Ahmad Rajab Anugerah ', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
+('e24b76e6-dee2-4262-80a1-f00f554d0440', 'manager.smart@mailinator.com', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Ahmad Rajab Anugerah', true, true, true, true, 'manager.smart@mailinator.com', NULL, NULL, 'ROLE_MANAGER', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
 ('f2cc13e4-f865-4850-bf7c-8fc814e88915', 'koorlap.smart@mailinator.com', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Jumadi', true, true, true, true, 'koorlap.smart@mailinator.com', NULL, NULL, 'ROLE_SUPERVISOR', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL),
 ('b223fb75-bea0-4939-b04b-9aede45bf7cf', 'guardmember.smart@mailinator.com', '$2a$13$SFGnAPHD/fP9BlNQU7drpeAKxFFgk9pDBIR5D4mb17RbNzKcU6K8S', 'Indra', true, true, true, true, 'guardmember.smart@mailinator.com', NULL, NULL, 'ROLE_MEMBER', 'SMART', 0, true, '2018-12-05 14:50:55', 'system', NULL, NULL);
 
@@ -434,8 +434,8 @@ INSERT INTO security.sec_occupation (occupation_uuid, occupation_code, occupatio
 --
 -- Dumping data for table sec_employee
 --
-	
-INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, id_employee, last_EDUCATIONAL_LEVEL) VALUES 
+
+INSERT INTO security.sec_employee (employee_uuid, user_uuid, parent_uuid, occupation_uuid, corporate_uuid, id_employee, last_educational_level) VALUES 
 ('5e88d92b-32e3-42e2-973b-898287419f98', '38527ac6-edb6-4a4f-8e60-eede49c4c2a6', NULL, '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '05480204', 'EDUCATIONAL_LEVEL.S1'),
 ('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'e24b76e6-dee2-4262-80a1-f00f554d0440', NULL, 'af94a020-709b-4fbf-adcb-ce0be48386d4', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '05480201', 'EDUCATIONAL_LEVEL.S1'),
 ('cd678d0b-fe1c-4801-89b0-b6d5013ac285', 'f2cc13e4-f865-4850-bf7c-8fc814e88915', NULL, '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '0ae4b095-d957-4ff1-a34d-7a440cc8d8ca', '05480202', 'EDUCATIONAL_LEVEL.SMA'),

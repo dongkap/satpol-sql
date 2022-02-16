@@ -279,4 +279,14 @@ INSERT INTO  activity.mst_business_partner (bp_uuid, bp_name, corporate_code) VA
 ('37c5f9f7-508d-4d76-a5ae-0e0bf5467b36', 'Tanie Abadi Sejahtera', 'SMART'),
 ('a8b388a9-7a74-4235-9788-7672fb86af08', 'Tirta Osmosis', 'SMART'),
 ('5098cae8-3f3a-4354-b813-5ee1b63cf859', 'Town For Kids', 'SMART'),
-('faef7766-8367-45fc-a5b9-9cab0b3b3ba3', 'Viar');
+('faef7766-8367-45fc-a5b9-9cab0b3b3ba3', 'Viar', 'SMART');
+
+--
+-- Dumping data for table sec_employee
+--
+
+INSERT INTO activity.sec_employee (employee_uuid, occupation_uuid, id_employee, username, fullname) VALUES 
+('5e88d92b-32e3-42e2-973b-898287419f98', '4d72e6dd-d098-44ed-af04-0a7df6cd5226', '05480204', 'satpamsmart@yahoo.co.id', 'Abdul Ronie'),
+('fc1e3a4d-45a1-4e90-bc88-a4c98cb39cd1', 'af94a020-709b-4fbf-adcb-ce0be48386d4', '05480201', 'manager.smart@mailinator.com', 'Ahmad Rajab Anugerah'),
+('cd678d0b-fe1c-4801-89b0-b6d5013ac285', '90f75c7d-6398-4af6-9d40-2ada6f33b87b', '05480202', 'koorlap.smart@mailinator.com', 'Jumadi'),
+('be1c57e6-2141-413e-85a5-2eec9bc0c4ba', '1f92c9ed-8414-4683-8a1b-999e03b3f5bc', '05480206', 'guardmember.smart@mailinator.com', 'Indra');
