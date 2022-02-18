@@ -74,9 +74,9 @@ CREATE TABLE security.file_metadata (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (file_metadata_uuid)
 );
 
@@ -88,9 +88,9 @@ CREATE TABLE security.sec_app (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (app_uuid)
 );
 CREATE TABLE security.sec_menu (
@@ -108,9 +108,9 @@ CREATE TABLE security.sec_menu (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	parent_uuid varchar(36),
 	PRIMARY KEY (menu_uuid)
 );
@@ -122,9 +122,9 @@ CREATE TABLE security.sec_menu_i18n (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (menu_i18n_uuid)
 );
 CREATE TABLE security.sec_sys_auth (
@@ -134,9 +134,9 @@ CREATE TABLE security.sec_sys_auth (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (sys_auth_uuid)
 );
 CREATE TABLE security.sec_role (
@@ -147,9 +147,9 @@ CREATE TABLE security.sec_role (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	sys_auth_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (role_uuid)
 );
@@ -161,9 +161,9 @@ CREATE TABLE security.sec_function (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (function_uuid)
 );
 CREATE TABLE security.sec_user (
@@ -188,9 +188,9 @@ CREATE TABLE security.sec_user (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (user_uuid)
 );
 CREATE TABLE security.sec_r_user_app (
@@ -220,9 +220,9 @@ CREATE TABLE security.sec_contact_user (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	user_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (contact_user_uuid)
 );
@@ -238,9 +238,9 @@ CREATE TABLE security.sec_personal_info (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	user_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (personal_info_uuid)
 );
@@ -253,9 +253,9 @@ CREATE TABLE security.sec_settings (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	user_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (settings_uuid)
 );
@@ -272,9 +272,9 @@ CREATE TABLE security.sec_corporate (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (corporate_uuid)
 );
 CREATE TABLE security.sec_occupation (
@@ -284,22 +284,23 @@ CREATE TABLE security.sec_occupation (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (occupation_uuid)
 );
 CREATE TABLE security.sec_employee (
 	employee_uuid varchar(36) NOT NULL,
 	id_employee varchar(50) NOT NULL,
-	last_educational_level varchar(50),
+	last_educational_level varchar(50) DEFAULT 'EDUCATIONAL_LEVEL.NO_EDUCATION',
+	id_card_image varchar(250),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	parent_uuid varchar(36),
 	user_uuid varchar(36) NOT NULL,
 	occupation_uuid varchar(36) NOT NULL,
@@ -318,9 +319,9 @@ CREATE TABLE security.sec_education (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	employee_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (education_uuid)
 );
@@ -333,9 +334,9 @@ CREATE TABLE security.sec_training (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	employee_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (training_uuid)
 );
@@ -349,9 +350,9 @@ CREATE TABLE security.sec_certification (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	employee_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36),
 	PRIMARY KEY (certification_uuid)

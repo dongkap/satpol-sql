@@ -15,9 +15,9 @@ CREATE TABLE master.mst_business_partner (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (bp_uuid)
 );
 CREATE TABLE master.mst_b2b (
@@ -27,9 +27,9 @@ CREATE TABLE master.mst_b2b (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	bp_uuid varchar(36) NOT NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (b2b_uuid)
@@ -43,9 +43,9 @@ CREATE TABLE master.mst_asset (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	bp_uuid varchar(36) NULL,
 	corporate_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (asset_uuid)
@@ -60,9 +60,9 @@ CREATE TABLE master.mst_country (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (country_uuid)
 );
 CREATE TABLE master.mst_province (
@@ -72,9 +72,9 @@ CREATE TABLE master.mst_province (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	country_uuid varchar(36) NOT NULL,
 	PRIMARY KEY ("id")
 );
@@ -85,9 +85,9 @@ CREATE TABLE master.mst_city (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	province_id int NOT NULL,
 	PRIMARY KEY ("id")
 );
@@ -98,9 +98,9 @@ CREATE TABLE master.mst_district (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	city_id int NOT NULL,
 	PRIMARY KEY ("id")
 );
@@ -111,9 +111,9 @@ CREATE TABLE master.mst_subdistrict (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	district_id int NOT NULL,
 	PRIMARY KEY ("id")
 );
@@ -135,9 +135,9 @@ CREATE TABLE master.mst_currency (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (currency_uuid)
 );
 CREATE TABLE master.mst_r_country_currency (
@@ -151,9 +151,9 @@ CREATE TABLE master.mst_language (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (language_uuid)
 );
 CREATE TABLE master.mst_locale (
@@ -166,9 +166,9 @@ CREATE TABLE master.mst_locale (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (locale_uuid)
 );
 CREATE TABLE master.mst_parameter_group (
@@ -178,9 +178,9 @@ CREATE TABLE master.mst_parameter_group (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (parameter_group_uuid)
 );
 CREATE TABLE master.mst_parameter (
@@ -189,9 +189,9 @@ CREATE TABLE master.mst_parameter (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	parameter_group_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (parameter_uuid)
 );
@@ -203,9 +203,9 @@ CREATE TABLE master.mst_parameter_i18n (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (parameter_i18n_uuid)
 );
 

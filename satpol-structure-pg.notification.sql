@@ -5,9 +5,9 @@ CREATE TABLE "notification".subscription (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (subscription_uuid)
 );
 CREATE TABLE "notification".push_notification ( 
@@ -19,9 +19,9 @@ CREATE TABLE "notification".push_notification (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	subscription_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (push_notification_uuid)
 );
@@ -33,9 +33,9 @@ CREATE TABLE "notification".push_settings (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	subscription_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (push_settings_uuid)
 );

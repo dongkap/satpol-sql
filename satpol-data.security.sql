@@ -168,7 +168,7 @@ INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering
 ('6464e4ef-cbc8-45fa-9492-6df7c9c2030f', 'N/A', '#', 0, 3, '003', 'people-outline', false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL),
 ('a1e515d4-4bd8-4a2f-afc0-ae6bdd948dd7', '#MANAGEMENT-OCCUPATION-PAGE', '/app/mgmt/occupation', 1, 0, '003.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
 ('f5bd9894-570f-4305-ace2-ab8cf30dce86', '#MANAGEMENT-EMPLOYEE-PAGE', '/app/mgmt/employee', 1, 1, '003.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
-('a1492544-0464-43ad-8fe0-c4b6534bddfb', '#MANAGEMENT-EMPLOYEMENT-PLACEMENT-PAGE', '/app/mgmt/employement-placement', 1, 2, '003.002', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
+('a1492544-0464-43ad-8fe0-c4b6534bddfb', '#MANAGEMENT-JOB-PLACEMENT-PAGE', '/app/mgmt/job-placement', 1, 2, '003.002', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
 ('c01a10f7-f6e2-4223-bf06-98953a67ac71', '#MANAGEMENT-INVENTORY-PAGE', '/app/mgmt/inventory', 1, 3, '003.003', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '6464e4ef-cbc8-45fa-9492-6df7c9c2030f'),
 ('2fa36bb0-b762-4ed1-a79e-ef09836b2445', 'N/A', '#', 0, 4, '004', 'briefcase-outline', false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL),
 ('8e67e5d2-68ff-4c1c-9b03-fc3da50290c9', '#MANAGEMENT-BP-PAGE', '/app/mgmt/business-partner', 1, 0, '004.000', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '2fa36bb0-b762-4ed1-a79e-ef09836b2445'),
@@ -181,7 +181,7 @@ INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering
 ('64fb81a5-5e98-473e-bf2a-cbe25435298a', '#REPORT-GUEST-BOOK-PAGE', '/app/report/guest-book', 1, 1, '007.001', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, '7905a575-7caf-4c37-85f2-bdf4d773518a');
 --- Extra Menu
 INSERT INTO security.sec_menu (menu_uuid, code, url, "level", ordering, ordering_str, "type", icon, is_leaf, is_home, is_group, "version", is_active, created_date, created_by, modified_date, modified_by, parent_uuid) VALUES
-('59e7e128-fe95-48d4-97a9-5441ae3d320c', '#PROFILE-PAGE', '/app/user/profile', 0, 0, '100', 'extra', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL),
+('59e7e128-fe95-48d4-97a9-5441ae3d320c', '#EMPLOYEE-PROFILE-PAGE', '/app/employee/profile', 0, 0, '100', 'extra', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL),
 ('65691d1c-8f9d-4f4f-9223-c48f8c4dcee4', '#SECURITY-PAGE', '/app/user/security', 0, 1, '101', 'extra', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL),
 ('1de67261-d2f9-4a01-bba2-68db9b3ad8c3', '#SETTINGS-PAGE', '/app/user/settings', 0, 2, '102', 'extra', NULL, false, false, false, 0, true, '2018-12-04 13:35:36', 'system', NULL, NULL, NULL);
 
@@ -203,7 +203,7 @@ INSERT INTO security.sec_menu_i18n (menu_i18n_uuid, menu_uuid, locale_code, titl
 ('eaf26eb5-75c4-46b9-8551-57e9aa42c7aa', '6464e4ef-cbc8-45fa-9492-6df7c9c2030f', 'en-US', 'Company Management', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
 ('70c713ee-ddb8-44e7-a41d-de5ccb0aaa67', 'a1e515d4-4bd8-4a2f-afc0-ae6bdd948dd7', 'en-US', 'Manage Occupation', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
 ('57da4f7e-b27b-4422-ad94-f4a8fc1423c1', 'f5bd9894-570f-4305-ace2-ab8cf30dce86', 'en-US', 'Manage Employee', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
-('860a266d-27df-42ca-bf86-7b7bec3870da', 'a1492544-0464-43ad-8fe0-c4b6534bddfb', 'en-US', 'Employement Placement', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
+('860a266d-27df-42ca-bf86-7b7bec3870da', 'a1492544-0464-43ad-8fe0-c4b6534bddfb', 'en-US', 'Job Placement', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
 ('a9c29e11-2f48-4225-baa4-71987597974c', 'c01a10f7-f6e2-4223-bf06-98953a67ac71', 'en-US', 'List Inventory', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
 ('c83ceb74-0522-4a8c-989d-9597296aaf05', '2fa36bb0-b762-4ed1-a79e-ef09836b2445', 'en-US', 'Business Partner', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
 ('3fae4e31-9178-4e3d-8d6e-ce0db287e741', '8e67e5d2-68ff-4c1c-9b03-fc3da50290c9', 'en-US', 'Business Partner', 0, true, '2018-12-04 13:37:15', 'system', NULL, NULL),
@@ -339,7 +339,6 @@ INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, v
 ('6e10165f-0f93-457c-9c05-9839f1a76190', '65691d1c-8f9d-4f4f-9223-c48f8c4dcee4', '640c7083-7e41-4564-9501-3c8d53271412', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null),
 ('d8f04c6e-baa9-4510-8797-07c7b48141ca', '1de67261-d2f9-4a01-bba2-68db9b3ad8c3', '640c7083-7e41-4564-9501-3c8d53271412', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null);
 INSERT INTO security.sec_function(function_uuid, menu_uuid, role_uuid, access, version, is_active, created_date, created_by, modified_date, modified_by) VALUES
-('f9cb0be9-9e93-4bf7-b944-ef5a927c3462', '59e7e128-fe95-48d4-97a9-5441ae3d320c', 'a3775be8-7d45-497f-b7cb-df30f26071fc', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null),
 ('95f408ac-1f7d-41f1-bcc5-40637adf2de0', '65691d1c-8f9d-4f4f-9223-c48f8c4dcee4', 'a3775be8-7d45-497f-b7cb-df30f26071fc', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null),
 ('e045f205-5a41-4bf7-8892-73a2bc35cfdd', '1de67261-d2f9-4a01-bba2-68db9b3ad8c3', 'a3775be8-7d45-497f-b7cb-df30f26071fc', 'read,write,trust', 0, true, '2018-12-19 10:06:50.069434', 'admin', null, null);
 

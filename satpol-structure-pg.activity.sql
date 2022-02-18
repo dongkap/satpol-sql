@@ -62,9 +62,9 @@ CREATE TABLE activity.file_metadata (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	PRIMARY KEY (file_metadata_uuid)
 );
 CREATE TABLE activity.assignment_group (
@@ -73,9 +73,9 @@ CREATE TABLE activity.assignment_group (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	corporate_uuid varchar(36) NOT NULL,
 	bp_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (assignment_group_uuid)
@@ -87,13 +87,13 @@ CREATE TABLE activity.assignment (
 	auto_approved boolean DEFAULT true NOT NULL,
 	is_approved boolean DEFAULT true NOT NULL,
 	approved_date timestamp,
-	approved_by varchar(25),
+	approved_by varchar(150),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	assignment_group_uuid varchar(36) NOT NULL,
 	employee_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (assignment_uuid)
@@ -107,13 +107,13 @@ CREATE TABLE activity.timesheet (
 	auto_approved boolean DEFAULT true NOT NULL,
 	is_approved boolean DEFAULT true NOT NULL,
 	approved_date timestamp,
-	approved_by varchar(25),
+	approved_by varchar(150),
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	assignment_uuid varchar(36) NOT NULL,
 	next_shift_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (timesheet_uuid)
@@ -131,9 +131,9 @@ CREATE TABLE activity.timesheet_detail (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	timesheet_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36),
 	PRIMARY KEY (timesheet_detail_uuid)
@@ -141,7 +141,7 @@ CREATE TABLE activity.timesheet_detail (
 CREATE TABLE activity.event (
 	event_uuid varchar(36) NOT NULL,
 	event_description text NOT NULL,
-	event_status varchar(25) NOT NULL,
+	event_status varchar(150) NOT NULL,
 	latitude numeric NOT NULL,
 	longitude numeric NOT NULL,
 	formatted_address text,
@@ -152,9 +152,9 @@ CREATE TABLE activity.event (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	timesheet_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (event_uuid)
@@ -167,9 +167,9 @@ CREATE TABLE activity.log_inventory (
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	timesheet_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36) NULL,
 	asset_uuid varchar(36) NOT NULL,
@@ -184,17 +184,17 @@ CREATE TABLE activity.guest_book (
 	vehicle_type varchar(10),
 	id_card_type varchar(10),
 	in_checked_date timestamp NOT NULL,
-	in_checked_by varchar(25) NOT NULL,
+	in_checked_by varchar(150) NOT NULL,
 	in_checked_fullname varchar(75) NOT NULL,
 	out_checked_date timestamp,
-	out_checked_by varchar(25),
+	out_checked_by varchar(150),
 	out_checked_fullname varchar(75) NOT NULL,
 	"version" int DEFAULT 0 NOT NULL,
 	is_active boolean DEFAULT true NOT NULL,
 	created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-	created_by varchar(25),
+	created_by varchar(150),
 	modified_date timestamp,
-	modified_by varchar(25),
+	modified_by varchar(150),
 	assignment_group_uuid varchar(36) NOT NULL,
 	file_metadata_uuid varchar(36) NOT NULL,
 	PRIMARY KEY (guest_book_uuid)
@@ -203,7 +203,6 @@ CREATE TABLE activity.guest_book (
 ALTER TABLE activity.sec_corporate ADD CONSTRAINT corporate_code UNIQUE (corporate_code);
 ALTER TABLE activity.sec_employee ADD CONSTRAINT username UNIQUE (username);
 ALTER TABLE activity.file_metadata ADD CONSTRAINT file_checksum UNIQUE (file_checksum);
-ALTER TABLE activity.assignment ADD CONSTRAINT assignment_number UNIQUE (assignment_number);
 
 ALTER TABLE activity.mst_parameter_i18n
 	ADD FOREIGN KEY (parameter_uuid) 
